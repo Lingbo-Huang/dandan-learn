@@ -4,7 +4,7 @@ title: 首页
 ---
 
 <div class="hero">
-  <h1>🥚 丹丹的学习基地</h1>
+  <h1>🥚 🥚🥚的学习基地</h1>
   <p>AI · 大模型 · Agent · AI Infra · 量化<br>一年速成计划，从零到顶尖 💪</p>
 </div>
 
