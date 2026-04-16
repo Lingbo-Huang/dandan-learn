@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f6f8fa; color: #24292f; line-height: 1.7; }
+    nav { background: #1a1a2e; padding: 14px 32px; display: flex; align-items: center; gap: 32px; }
+    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.95em; }
+    nav a:hover { color: white; }
+    nav .brand { font-weight: 700; font-size: 1.05em; color: white; }
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+    footer { text-align: center; padding: 32px; color: #9ca3af; font-size: 0.84em; border-top: 1px solid #e5e7eb; background: white; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="{{ '/' | relative_url }}">🥚 丹丹的学习基地</a>
+    <a href="{{ '/ai/' | relative_url }}">🧠 AI基础</a>
+    <a href="{{ '/llm/' | relative_url }}">🤖 大模型</a>
+    <a href="{{ '/agent/' | relative_url }}">🦾 Agent</a>
+    <a href="{{ '/infra/' | relative_url }}">⚙️ Infra</a>
+    <a href="{{ '/quant/' | relative_url }}">📈 量化</a>
+  </nav>
+  <div class="page-content">
+    {{ content }}
+  </div>
+  <footer>
+    由 🥚🥚总管 统筹 · 五位助教并行教学 · 每周持续更新<br>
+    <a href="https://github.com/Lingbo-Huang/dandan-learn" style="color:#0969da;">GitHub</a>
+  </footer>
+</body>
+</html>
