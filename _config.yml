@@ -1,4 +1,4 @@
-title: 丹丹的学习基地
+title: 🥚🥚的学习基地
 description: AI · 大模型 · Agent · AI Infra · 量化 —— 一年速成，从零到顶尖
 url: "https://lingbo-huang.github.io"
 baseurl: "/dandan-learn"
@@ -9,7 +9,7 @@ minima:
   skin: dark
 
 author:
-  name: 丹丹
+  name: 🥚🥚
 
 markdown: kramdown
 highlighter: rouge
