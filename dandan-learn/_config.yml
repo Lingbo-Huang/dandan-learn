@@ -1,0 +1,16 @@
+title: 丹丹的学习基地
+description: AI × 大模型 × 量化 一年速成计划
+theme: minima
+lang: zh-CN
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - upload_to_github.py
+  - "*.sh"
