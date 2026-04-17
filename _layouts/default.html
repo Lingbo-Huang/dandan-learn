@@ -3,42 +3,376 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-  <!-- MathJax -->
-  <script>
-    MathJax = {
-      tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']], tags: 'ams' },
-      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
-    };
-  </script>
+  <title>{% if page.title %}{{ page.title }} · {% endif %}🥚🥚的学习基地</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}}</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
   <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --text3: #6e7681;
+      --accent: #58a6ff;
+      --accent2: #1f6feb;
+      --green: #3fb950;
+      --purple: #bc8cff;
+      --orange: #ffa657;
+      --red: #ff7b72;
+      --teal: #39d353;
+      --radius: 12px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #f6f8fa; color: #24292f; line-height: 1.7; }
-    nav { background: #1a1a2e; padding: 14px 32px; display: flex; align-items: center; gap: 32px; }
-    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.95em; }
-    nav a:hover { color: white; }
-    nav .brand { font-weight: 700; font-size: 1.05em; color: white; }
-    .page-content { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
-    footer { text-align: center; padding: 32px; color: #9ca3af; font-size: 0.84em; border-top: 1px solid #e5e7eb; background: white; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── 阅读进度条 ── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, #58a6ff, #bc8cff);
+      z-index: 1000; transition: width 0.1s;
+    }
+
+    /* ── 导航 ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex; align-items: center; gap: 0;
+      height: 60px;
+    }
+    .nav-brand {
+      font-weight: 700; font-size: 1em; color: var(--text);
+      text-decoration: none; margin-right: 32px; white-space: nowrap;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-brand:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; flex: 1; }
+    .nav-links a {
+      color: var(--text2); text-decoration: none;
+      padding: 6px 12px; border-radius: 6px;
+      font-size: 0.875em; font-weight: 500;
+      transition: all 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--bg3); }
+    .nav-links a.active { color: var(--accent); background: rgba(88,166,255,0.1); }
+    .nav-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+
+    /* ── 主内容 ── */
+    .page-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; }
+
+    /* ── 首页 Hero ── */
+    .home-hero {
+      text-align: center; padding: 100px 20px 80px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88,166,255,0.12) 0%, transparent 70%);
+      position: relative; overflow: hidden;
+    }
+    .home-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2358a6ff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .home-hero .tag {
+      display: inline-block; background: rgba(88,166,255,0.15); color: var(--accent);
+      border: 1px solid rgba(88,166,255,0.3); border-radius: 20px;
+      padding: 4px 16px; font-size: 0.82em; font-weight: 500; margin-bottom: 24px;
+    }
+    .home-hero h1 { font-size: 3.5em; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+    .home-hero h1 .gradient {
+      background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 50%, #ffa657 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .home-hero p { font-size: 1.15em; color: var(--text2); max-width: 560px; margin: 0 auto 40px; }
+    .hero-stats { display: flex; gap: 48px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
+    .hero-stat .num { font-size: 2.5em; font-weight: 700; color: var(--text); }
+    .hero-stat .label { font-size: 0.82em; color: var(--text3); margin-top: 4px; }
+
+    /* ── 轨道卡片 ── */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px; margin-top: 60px;
+    }
+    .track-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .track-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--card-color, #58a6ff);
+    }
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--card-color, #58a6ff);
+      text-decoration: none;
+    }
+    .track-card .icon { font-size: 2em; margin-bottom: 12px; display: block; }
+    .track-card h3 { font-size: 1.15em; font-weight: 600; margin-bottom: 8px; }
+    .track-card p { font-size: 0.875em; color: var(--text2); line-height: 1.6; margin-bottom: 20px; }
+    .track-card .badge {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      font-size: 0.76em; font-weight: 600; margin-bottom: 16px;
+      background: rgba(88,166,255,0.15); color: var(--accent);
+      border: 1px solid rgba(88,166,255,0.2);
+    }
+    .track-card .arrow { color: var(--text3); font-size: 0.9em; margin-top: 8px; transition: color 0.2s; }
+    .track-card:hover .arrow { color: var(--accent); }
+
+    /* ── Phase 折叠 ── */
+    .phases { display: flex; flex-direction: column; gap: 10px; }
+    .phase {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .phase.open { border-color: var(--phase-color, #58a6ff); }
+    .phase-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; cursor: pointer; user-select: none;
+      transition: background 0.15s;
+    }
+    .phase-header:hover { background: var(--bg3); }
+    .phase-left { display: flex; align-items: center; gap: 14px; }
+    .phase-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1em; flex-shrink: 0;
+      background: rgba(88,166,255,0.1);
+    }
+    .phase-title { font-weight: 600; font-size: 0.95em; }
+    .phase-meta { font-size: 0.8em; color: var(--text3); margin-top: 2px; }
+    .phase-right { display: flex; align-items: center; gap: 12px; }
+    .phase-progress {
+      font-size: 0.75em; color: var(--text3);
+      background: var(--bg3); padding: 3px 10px; border-radius: 20px;
+    }
+    .phase-arrow {
+      color: var(--text3); font-size: 0.9em;
+      transition: transform 0.25s; display: inline-block;
+    }
+    .phase.open .phase-arrow { transform: rotate(90deg); }
+    .phase-body { display: none; padding: 0 22px 20px; }
+    .phase.open .phase-body { display: block; }
+
+    /* ── 周块 ── */
+    .week-block { margin-top: 16px; }
+    .week-label {
+      font-size: 0.8em; font-weight: 600; color: var(--text3);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 10px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .day-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+    .day-link {
+      display: block; padding: 9px 13px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text2);
+      text-decoration: none; font-size: 0.83em;
+      transition: all 0.15s; line-height: 1.4;
+    }
+    .day-link:hover {
+      background: rgba(88,166,255,0.08);
+      border-color: rgba(88,166,255,0.3);
+      color: var(--accent); text-decoration: none;
+    }
+    .day-link.plan {
+      color: var(--green); border-color: rgba(63,185,80,0.2);
+      background: rgba(63,185,80,0.05);
+    }
+    .day-link.plan:hover { background: rgba(63,185,80,0.1); }
+    .coming { color: var(--text3); font-size: 0.82em; font-style: italic; padding: 8px 0; }
+
+    /* ── 文章页 ── */
+    .article-hero {
+      padding: 60px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .article-breadcrumb { font-size: 0.82em; color: var(--text3); margin-bottom: 16px; }
+    .article-breadcrumb a { color: var(--text3); text-decoration: none; }
+    .article-breadcrumb a:hover { color: var(--accent); }
+    .article-tags { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .article-tag {
+      font-size: 0.76em; padding: 3px 10px; border-radius: 20px;
+      border: 1px solid var(--border); color: var(--text3);
+    }
+    .article-hero h1 { font-size: 2.2em; font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
+    .article-meta { font-size: 0.85em; color: var(--text3); }
+
+    /* ── 文章内容 ── */
+    .article-body { max-width: 780px; }
+    .article-body h2 {
+      font-size: 1.4em; font-weight: 600; margin: 48px 0 16px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .article-body h3 { font-size: 1.15em; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+    .article-body h4 { font-size: 1em; font-weight: 600; margin: 24px 0 10px; color: var(--text2); }
+    .article-body p { margin: 16px 0; color: var(--text2); }
+    .article-body ul, .article-body ol { padding-left: 24px; margin: 14px 0; color: var(--text2); }
+    .article-body li { margin: 6px 0; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 2px 7px; border-radius: 5px; font-size: 0.85em;
+      color: #ffa657;
+    }
+    .article-body pre {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      overflow-x: auto; margin: 24px 0; position: relative;
+    }
+    .article-body pre code {
+      background: none; border: none; padding: 0;
+      font-size: 0.88em; color: var(--text); line-height: 1.7;
+    }
+    .article-body table {
+      width: 100%; border-collapse: collapse; margin: 24px 0;
+      font-size: 0.9em;
+    }
+    .article-body th {
+      background: var(--bg3); padding: 11px 16px;
+      border: 1px solid var(--border); text-align: left;
+      font-weight: 600; color: var(--text);
+    }
+    .article-body td {
+      padding: 10px 16px; border: 1px solid var(--border); color: var(--text2);
+    }
+    .article-body tr:hover td { background: var(--bg3); }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent); padding: 16px 20px;
+      background: rgba(88,166,255,0.06); border-radius: 0 8px 8px 0;
+      margin: 24px 0; color: var(--text2);
+    }
+    .article-body hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .article-body img { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+
+    /* ── 轨道颜色变量 ── */
+    .c-ai    { --phase-color: #58a6ff; --card-color: #58a6ff; }
+    .c-llm   { --phase-color: #bc8cff; --card-color: #bc8cff; }
+    .c-agent { --phase-color: #ffa657; --card-color: #ffa657; }
+    .c-infra { --phase-color: #ff7b72; --card-color: #ff7b72; }
+    .c-quant { --phase-color: #3fb950; --card-color: #3fb950; }
+
+    /* ── 轨道 Hero ── */
+    .track-hero {
+      padding: 60px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .track-hero .eyebrow {
+      font-size: 0.78em; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px;
+    }
+    .track-hero h1 { font-size: 2.4em; font-weight: 700; margin-bottom: 14px; }
+    .track-hero p { font-size: 1em; color: var(--text2); max-width: 600px; line-height: 1.7; }
+    .track-stats { display: flex; gap: 32px; margin-top: 32px; }
+    .track-stat .num { font-size: 1.8em; font-weight: 700; }
+    .track-stat .label { font-size: 0.78em; color: var(--text3); margin-top: 2px; }
+
+    /* ── 页脚 ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px; text-align: center;
+      color: var(--text3); font-size: 0.82em;
+      background: var(--bg2);
+    }
+    footer a { color: var(--text3); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── 滚动条 ── */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border); }
+
+    /* ── 响应式 ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .page-wrap { padding: 24px 16px 60px; }
+      .home-hero h1 { font-size: 2.2em; }
+      .hero-stats { gap: 24px; }
+      .tracks-grid { grid-template-columns: 1fr; }
+      .article-hero h1 { font-size: 1.6em; }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a class="brand" href="{{ '/' | relative_url }}">🥚 🥚🥚的学习基地</a>
-    <a href="{{ '/ai/' | relative_url }}">🧠 AI基础</a>
-    <a href="{{ '/llm/' | relative_url }}">🤖 大模型</a>
-    <a href="{{ '/agent/' | relative_url }}">🦾 Agent</a>
-    <a href="{{ '/infra/' | relative_url }}">⚙️ Infra</a>
-    <a href="{{ '/quant/' | relative_url }}">📈 量化</a>
-  </nav>
-  <div class="page-content">
-    {{ content }}
+
+<div id="progress-bar"></div>
+
+<nav>
+  <a class="nav-brand" href="{{ '/' | relative_url }}">🥚 🥚🥚的学习基地</a>
+  <div class="nav-links">
+    <a href="{{ '/ai/' | relative_url }}"><span class="nav-dot" style="background:#58a6ff"></span>AI基础</a>
+    <a href="{{ '/llm/' | relative_url }}"><span class="nav-dot" style="background:#bc8cff"></span>大模型</a>
+    <a href="{{ '/agent/' | relative_url }}"><span class="nav-dot" style="background:#ffa657"></span>Agent</a>
+    <a href="{{ '/infra/' | relative_url }}"><span class="nav-dot" style="background:#ff7b72"></span>Infra</a>
+    <a href="{{ '/quant/' | relative_url }}"><span class="nav-dot" style="background:#3fb950"></span>量化</a>
   </div>
-  <footer>
-    由 🥚🥚总管 统筹 · 五位助教并行教学 · 每周持续更新<br>
-    <a href="https://github.com/Lingbo-Huang/dandan-learn" style="color:#0969da;">GitHub</a>
-  </footer>
+</nav>
+
+<div class="page-wrap">
+  {{ content }}
+</div>
+
+<footer>
+  <div>由 🥚🥚总管 统筹 · 五位助教并行教学 · 每周持续更新</div>
+  <div style="margin-top:8px">
+    <a href="https://github.com/Lingbo-Huang/dandan-learn">GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="{{ '/' | relative_url }}">返回首页</a>
+  </div>
+</footer>
+
+<script>
+// 阅读进度条
+window.addEventListener('scroll', function() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+});
+
+// Phase 折叠
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.phase-header').forEach(function(h) {
+    h.addEventListener('click', function() {
+      h.parentElement.classList.toggle('open');
+    });
+  });
+  var first = document.querySelector('.phase');
+  if (first) first.classList.add('open');
+
+  // 当前页导航高亮
+  var path = window.location.pathname;
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    if (path.includes(a.getAttribute('href').split('/').filter(Boolean).pop())) {
+      a.classList.add('active');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
