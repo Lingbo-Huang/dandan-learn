@@ -3,94 +3,58 @@ layout: default
 title: 首页
 ---
 
-<div class="hero">
-  <h1>🥚 🥚🥚的学习基地</h1>
-  <p>AI · 大模型 · Agent · AI Infra · 量化<br>一年速成计划，从零到顶尖 💪</p>
+<div class="home-hero">
+  <div class="tag">🚀 一年速成计划 · 五位助教并行教学</div>
+  <h1><span class="gradient">AI · 大模型 · Agent</span><br>从零到顶尖</h1>
+  <p>系统学习 AI 基础、大模型、Agent、AI Infra、量化交易，五条线并行，每周持续更新</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">5</div><div class="label">学习方向</div></div>
+    <div class="hero-stat"><div class="num">52</div><div class="label">周计划</div></div>
+    <div class="hero-stat"><div class="num">1820+</div><div class="label">天学习内容</div></div>
+    <div class="hero-stat"><div class="num">5</div><div class="label">位专属助教</div></div>
+  </div>
 </div>
 
-<div class="track-grid">
+<div class="tracks-grid">
 
-  <div class="track-card ai">
-    <span class="emoji">🧠</span>
-    <span class="badge">Week 1 进行中</span>
-    <h2>AI 基础</h2>
-    <p class="desc">数学基础 → 机器学习 → 深度学习 → CV/NLP → 前沿方向</p>
-    <ul>
-      <li><a href="ai/week01/ai-w1-week-plan">📅 Week 1 周规划总览</a></li>
-      <li><a href="ai/week01/ai-w1-vector-basics">D1 · 向量基础</a></li>
-      <li><a href="ai/week01/ai-w1-vector-advanced">D2 · 向量进阶</a></li>
-      <li><a href="ai/week01/ai-w1-matrix-basics">D3 · 矩阵基础</a></li>
-      <li><a href="ai/week01/ai-w1-matrix-multiplication">D4 · 矩阵乘法</a></li>
-      <li><a href="ai/week01/ai-w1-determinant">D5 · 行列式</a></li>
-      <li><a href="ai/week01/ai-w1-inverse-rank">D6 · 逆矩阵与秩</a></li>
-      <li><a href="ai/week01/ai-w1-capstone">D7 · 综合实战</a></li>
-    </ul>
-  </div>
+  <a href="{{ '/ai/' | relative_url }}" class="track-card c-ai">
+    <span class="icon">🧠</span>
+    <span class="badge">Week 1-2 进行中</span>
+    <h3>AI 基础</h3>
+    <p>从线性代数、概率统计出发，覆盖机器学习、深度学习、CV/NLP，到前沿方向</p>
+    <div class="arrow">查看课程 →</div>
+  </a>
 
-  <div class="track-card llm">
-    <span class="emoji">🤖</span>
-    <span class="badge">Week 1 进行中</span>
-    <h2>大模型 LLM</h2>
-    <p class="desc">Transformer → 预训练 → 微调对齐 → 推理部署 → 应用工程 → 前沿研究</p>
-    <ul>
-      <li><a href="llm/week01/llm-w1-week-plan">📅 Week 1 周规划总览</a></li>
-      <li><a href="llm/week01/llm-w1-transformer-overview">D1 · Transformer全景</a></li>
-      <li><a href="llm/week01/llm-w1-tokenization-embedding">D2 · 输入处理</a></li>
-      <li><a href="llm/week01/llm-w1-self-attention">D3 · 自注意力机制</a></li>
-      <li><a href="llm/week01/llm-w1-ffn-layernorm">D4 · FFN与LayerNorm</a></li>
-      <li><a href="llm/week01/llm-w1-encoder-decoder">D5 · 编码器解码器</a></li>
-      <li><a href="llm/week01/llm-w1-training-practice">D6 · 训练流程实战</a></li>
-      <li><a href="llm/week01/llm-w1-review">D7 · 综合复习</a></li>
-    </ul>
-  </div>
+  <a href="{{ '/llm/' | relative_url }}" class="track-card c-llm">
+    <span class="icon">🤖</span>
+    <span class="badge">Week 1-2 进行中</span>
+    <h3>大模型 LLM</h3>
+    <p>Transformer 原理、主流模型、微调对齐、推理部署，到前沿研究方向</p>
+    <div class="arrow">查看课程 →</div>
+  </a>
 
-  <div class="track-card agent">
-    <span class="emoji">🦾</span>
-    <span class="badge">Week 1 进行中</span>
-    <h2>Agent + Claw</h2>
-    <p class="desc">Agent基础 → 主流框架 → Claw深度实战 → 高级模式 → 垂直场景 → 系统设计</p>
-    <ul>
-      <li><a href="agent/week01/agent-w1-what-is-agent">D1 · 什么是Agent</a></li>
-      <li><a href="agent/week01/agent-w1-react-framework">D2 · ReAct框架</a></li>
-      <li><a href="agent/week01/agent-w1-planning">D3 · 规划能力</a></li>
-      <li><a href="agent/week01/agent-w1-memory-system">D4 · 记忆系统</a></li>
-      <li><a href="agent/week01/agent-w1-tool-calling">D5 · 工具调用</a></li>
-      <li><a href="agent/week01/agent-w1-multi-agent">D6 · 多Agent协作</a></li>
-      <li><a href="agent/week01/agent-w1-capstone-project">D7 · 综合实战</a></li>
-    </ul>
-  </div>
+  <a href="{{ '/agent/' | relative_url }}" class="track-card c-agent">
+    <span class="icon">🦾</span>
+    <span class="badge">Week 1-2 进行中</span>
+    <h3>Agent + Claw</h3>
+    <p>Agent 原理、主流框架、Claw 深度实战、多 Agent 系统架构与生产部署</p>
+    <div class="arrow">查看课程 →</div>
+  </a>
 
-  <div class="track-card infra">
-    <span class="emoji">⚙️</span>
-    <span class="badge">Week 1 进行中</span>
-    <h2>AI Infra</h2>
-    <p class="desc">GPU架构 → 训练系统 → 推理系统 → MLOps → 大规模系统 → 前沿架构</p>
-    <ul>
-      <li><a href="infra/week01/infra-w1-gpu-vs-cpu">D1 · GPU vs CPU</a></li>
-      <li><a href="infra/week01/infra-w1-sm-architecture">D2 · SM架构</a></li>
-      <li><a href="infra/week01/infra-w1-cuda-programming-model">D3 · CUDA编程模型</a></li>
-      <li><a href="infra/week01/infra-w1-first-cuda-kernel">D4 · 第一个CUDA Kernel</a></li>
-      <li><a href="infra/week01/infra-w1-memory-hierarchy-reduction">D5 · 内存层次与规约</a></li>
-      <li><a href="infra/week01/infra-w1-nsight-profiling">D6 · Nsight性能分析</a></li>
-      <li><a href="infra/week01/infra-w1-sgemm-week-review">D7 · SGEMM综合实战</a></li>
-    </ul>
-  </div>
+  <a href="{{ '/infra/' | relative_url }}" class="track-card c-infra">
+    <span class="icon">⚙️</span>
+    <span class="badge">Week 1-2 进行中</span>
+    <h3>AI Infra</h3>
+    <p>GPU 架构、CUDA 编程、分布式训练、推理系统，到千卡训练与前沿编译器优化</p>
+    <div class="arrow">查看课程 →</div>
+  </a>
 
-  <div class="track-card quant">
-    <span class="emoji">📈</span>
-    <span class="badge">Week 1 进行中</span>
-    <h2>量化 Quant</h2>
-    <p class="desc">金融基础 → 因子策略 → 回测体系 → 风控实盘 → AI量化融合 → 综合策略</p>
-    <ul>
-      <li><a href="quant/week01/quant-w1-week-plan">📅 Week 1 周规划总览</a></li>
-      <li><a href="quant/week01/quant-w1-market-overview">D1 · 金融市场全景</a></li>
-      <li><a href="quant/week01/quant-w1-returns">D2 · 价格与收益率</a></li>
-      <li><a href="quant/week01/quant-w1-technical-analysis">D3 · 技术分析基础</a></li>
-      <li><a href="quant/week01/quant-w1-fundamentals">D4 · 基本面基础</a></li>
-      <li><a href="quant/week01/quant-w1-market-microstructure">D5 · 市场微观结构</a></li>
-      <li><a href="quant/week01/quant-w1-time-series">D6 · 时间序列统计</a></li>
-      <li><a href="quant/week01/quant-w1-data-tools">D7 · 数据工具实战</a></li>
-    </ul>
-  </div>
+  <a href="{{ '/quant/' | relative_url }}" class="track-card c-quant">
+    <span class="icon">📈</span>
+    <span class="badge">Week 1-2 进行中</span>
+    <h3>量化 Quant</h3>
+    <p>金融市场、因子策略、回测体系、风控实盘，融合 AI 构建完整量化投资体系</p>
+    <div class="arrow">查看课程 →</div>
+  </a>
 
 </div>
