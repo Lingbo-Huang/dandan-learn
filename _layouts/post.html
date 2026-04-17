@@ -251,6 +251,53 @@
     }
     .site-footer a { color: var(--text3); text-decoration: none; }
 
+    /* ── 代码复制按钮 ── */
+    .pre-wrap { position: relative; }
+    .copy-btn {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(255,255,255,0.1); color: #94a3b8;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 5px; padding: 4px 10px;
+      font-size: 0.75em; font-family: 'Inter', sans-serif;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); color: #e2e8f0; }
+    .copy-btn.done { color: #86efac; border-color: #86efac; }
+
+    /* ── 上/下篇导航 ── */
+    .post-nav {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-top: 40px;
+    }
+    .post-nav a {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 14px 16px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      text-decoration: none; transition: all 0.15s;
+    }
+    .post-nav a:hover { border-color: var(--accent); box-shadow: var(--shadow); text-decoration: none; }
+    .post-nav .nav-dir { font-size: 0.72em; color: var(--text3); font-family: 'Inter', sans-serif; }
+    .post-nav .nav-title { font-size: 0.87em; color: var(--text); font-weight: 500; }
+    .post-nav .next { text-align: right; }
+    .post-nav a:only-child { grid-column: 1 / -1; }
+
+    /* ── 回到顶部 ── */
+    #back-top {
+      position: fixed; bottom: 32px; right: 28px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1em; color: var(--text3);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 300;
+    }
+    #back-top.show { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); color: var(--accent); border-color: var(--accent); }
+
+    /* ── 搜索（预留样式） ── */
+
     /* ── 响应式 ── */
     @media (max-width: 860px) {
       .toc-wrap { display: none; }
@@ -320,29 +367,68 @@
   </main>
 </div>
 
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+
 <footer class="site-footer">
   🥚🥚的学习基地 · 六位 AI 助教并行编写 ·
   <a href="https://github.com/Lingbo-Huang/dandan-learn">GitHub</a>
 </footer>
 
 <script>
-// 进度条
+// ── 进度条 + 回顶按钮 ──
 window.addEventListener('scroll', function() {
   var s = document.documentElement.scrollTop;
   var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   document.getElementById('reading-bar').style.width = (h > 0 ? s/h*100 : 0) + '%';
+  var btn = document.getElementById('back-top');
+  if (btn) btn.classList.toggle('show', s > 400);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
   var body = document.getElementById('a-body');
   if (!body) return;
 
-  // 字数/阅读时间
+  // ── 字数 & 阅读时间 ──
   var wc = (body.innerText || '').replace(/\s/g,'').length;
   document.getElementById('wc').textContent = wc.toLocaleString() + ' 字';
   document.getElementById('rt').textContent = Math.max(1, Math.ceil(wc/500)) + ' 分钟阅读';
 
-  // 生成目录
+  // ── 代码块：包装 + 复制按钮 ──
+  body.querySelectorAll('pre').forEach(function(pre) {
+    var wrap = document.createElement('div');
+    wrap.className = 'pre-wrap';
+    wrap.style.position = 'relative';
+    pre.parentNode.insertBefore(wrap, pre);
+    wrap.appendChild(pre);
+
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = '复制';
+    btn.addEventListener('click', function() {
+      var code = pre.querySelector('code');
+      var text = code ? code.innerText : pre.innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✓ 已复制';
+        btn.classList.add('done');
+        setTimeout(function() {
+          btn.textContent = '复制';
+          btn.classList.remove('done');
+        }, 2000);
+      }).catch(function() {
+        // 降级方案
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '✓ 已复制'; btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = '复制'; btn.classList.remove('done'); }, 2000);
+      });
+    });
+    wrap.appendChild(btn);
+  });
+
+  // ── 生成目录 ──
   var toc = document.getElementById('toc');
   var hs = body.querySelectorAll('h2,h3');
   hs.forEach(function(h, i) {
@@ -352,11 +438,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var a = document.createElement('a');
     a.href = '#' + h.id;
     a.textContent = h.textContent;
-    li.appendChild(a);
-    toc.appendChild(li);
+    li.appendChild(a); toc.appendChild(li);
   });
 
-  // 滚动高亮
+  // ── 目录滚动高亮 ──
   if (hs.length) {
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
@@ -369,6 +454,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { rootMargin: '-52px 0px -65% 0px' });
     hs.forEach(function(h){ obs.observe(h); });
   }
+
+  // ── 快捷键 ──
+  document.addEventListener('keydown', function(e) {
+    // j/k 滚动
+    if (e.key === 'j' && !e.ctrlKey && !e.metaKey) window.scrollBy({top: 120, behavior: 'smooth'});
+    if (e.key === 'k' && !e.ctrlKey && !e.metaKey) window.scrollBy({top: -120, behavior: 'smooth'});
+    // g g 回顶（简化：单按 g 直接回顶）
+    if (e.key === 'g' && e.shiftKey) window.scrollTo({top: 0, behavior: 'smooth'});
+  });
 });
 </script>
 </body>
