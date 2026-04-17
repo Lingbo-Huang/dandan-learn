@@ -4,13 +4,6 @@ url: "https://lingbo-huang.github.io"
 baseurl: "/dandan-learn"
 lang: zh-CN
 
-theme: minima
-minima:
-  skin: dark
-
-author:
-  name: 🥚🥚
-
 markdown: kramdown
 highlighter: rouge
 kramdown:
@@ -18,12 +11,42 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: highlight
+    block:
+      line_numbers: false
 
 permalink: pretty
 
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "ai"
+    values:
+      layout: "post"
+      track: "🧠 AI基础"
+  - scope:
+      path: "llm"
+    values:
+      layout: "post"
+      track: "🤖 大模型"
+  - scope:
+      path: "agent"
+    values:
+      layout: "post"
+      track: "🦾 Agent"
+  - scope:
+      path: "infra"
+    values:
+      layout: "post"
+      track: "⚙️ AI Infra"
+  - scope:
+      path: "quant"
+    values:
+      layout: "post"
+      track: "📈 量化"
 
 exclude:
   - "*.py"
