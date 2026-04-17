@@ -47,6 +47,11 @@ defaults:
     values:
       layout: "post"
       track: "📈 量化"
+  - scope:
+      path: "wisdom"
+    values:
+      layout: "post"
+      track: "🎯 智慧心法"
 
 exclude:
   - "*.py"
