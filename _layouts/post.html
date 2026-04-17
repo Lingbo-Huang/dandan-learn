@@ -281,6 +281,7 @@
     {% if page.track contains 'Agent' %}<a href="{{ '/agent/' | relative_url }}">Agent</a>{% endif %}
     {% if page.track contains 'Infra' %}<a href="{{ '/infra/' | relative_url }}">AI Infra</a>{% endif %}
     {% if page.track contains '量化' %}<a href="{{ '/quant/' | relative_url }}">量化</a>{% endif %}
+    {% if page.track contains '智慧' %}<a href="{{ '/wisdom/' | relative_url }}">智慧心法</a>{% endif %}
     <span class="sep">›</span>
   {% endif %}
   <span style="color:var(--text2);font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:300px">{{ page.title }}</span>
@@ -319,6 +320,7 @@
         {% if page.track contains 'Agent' %}<a class="back" href="{{ '/agent/' | relative_url }}">← 返回 Agent 目录</a>{% endif %}
         {% if page.track contains 'Infra' %}<a class="back" href="{{ '/infra/' | relative_url }}">← 返回 AI Infra 目录</a>{% endif %}
         {% if page.track contains '量化' %}<a class="back" href="{{ '/quant/' | relative_url }}">← 返回 量化 目录</a>{% endif %}
+        {% if page.track contains '智慧' %}<a class="back" href="{{ '/wisdom/' | relative_url }}">← 返回 智慧心法 目录</a>{% endif %}
       {% else %}
         <a class="back" href="{{ '/' | relative_url }}">← 返回首页</a>
       {% endif %}
