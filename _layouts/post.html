@@ -5,62 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} · {% endif %}🥚🥚的学习基地</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=LXGW+WenKai:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}}</script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
   <style>
     :root {
-      --bg: #fafaf8;
-      --surface: #ffffff;
-      --border: #e8e6e3;
-      --text: #1a1a1a;
-      --text2: #4a4a4a;
-      --text3: #888;
-      --accent: #0066cc;
-      --accent-bg: #f0f6ff;
-      --code-bg: #f6f8fa;
-      --code-border: #e8ecf0;
-      --green: #1a7f37;
-      --green-bg: #f0fdf4;
-      --yellow-bg: #fffbeb;
-      --sidebar: 260px;
-      --content: 740px;
-      --radius: 8px;
+      --bg:       #fafaf8;
+      --surface:  #ffffff;
+      --border:   #e8e5e0;
+      --border2:  #f2f0eb;
+      --text:     #1c1c1e;
+      --text2:    #48484a;
+      --text3:    #8e8e93;
+      --accent:   #2563eb;
+      --accent-bg:#eff6ff;
+      --code-bg:  #f6f8fa;
+      --shadow:   0 1px 8px rgba(0,0,0,0.06);
+      --sidebar:  240px;
+      --content:  720px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'LXGW WenKai', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Georgia, serif;
+      font-family: 'LXGW WenKai', 'PingFang SC', Georgia, serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.9;
+      line-height: 1.95;
       font-size: 17px;
     }
 
-    /* ── 顶部进度条 ── */
+    /* ── 进度条 ── */
     #reading-bar {
-      position: fixed; top: 0; left: 0; height: 3px; width: 0;
-      background: linear-gradient(90deg, #0066cc, #7c3aed);
-      z-index: 1000; transition: width 0.1s linear;
+      position: fixed; top: 0; left: 0; height: 2px; width: 0;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      z-index: 9999; pointer-events: none;
+      transition: width 0.12s linear;
     }
 
     /* ── 顶部导航 ── */
     .top-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 52px;
-      background: rgba(250,250,248,0.92);
-      backdrop-filter: blur(12px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 50px;
+      background: rgba(250,250,248,0.94);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; padding: 0 24px; gap: 16px;
+      display: flex; align-items: center;
+      padding: 0 24px; gap: 12px;
+      font-family: 'Inter', sans-serif;
     }
-    .top-nav a { color: var(--text3); text-decoration: none; font-size: 0.85em; }
+    .top-nav a { color: var(--text3); text-decoration: none; font-size: 0.82em; }
     .top-nav a:hover { color: var(--accent); }
-    .top-nav .sep { color: var(--border); }
-    .top-nav .track-pill {
-      margin-left: auto;
+    .top-nav .sep { color: var(--border); font-size: 0.8em; }
+    .top-nav .crumb { color: var(--text2); font-size: 0.82em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 280px; }
+    .top-nav .pill {
+      margin-left: auto; flex-shrink: 0;
       background: var(--accent-bg); color: var(--accent);
-      border: 1px solid #c7dff7; border-radius: 20px;
-      padding: 3px 12px; font-size: 0.78em; font-weight: 600;
+      border: 1px solid #bfdbfe; border-radius: 20px;
+      padding: 3px 12px; font-size: 0.75em; font-weight: 600;
     }
 
     /* ── 布局 ── */
@@ -68,268 +70,258 @@
       display: flex;
       max-width: calc(var(--sidebar) + var(--content) + 80px);
       margin: 0 auto;
-      padding-top: 52px;
-      min-height: 100vh;
+      padding-top: 50px;
+      align-items: flex-start;
     }
 
-    /* ── 左侧目录 ── */
+    /* ── 目录侧边栏 ── */
     .toc-wrap {
-      width: var(--sidebar);
-      flex-shrink: 0;
-      padding: 40px 20px 40px 24px;
-      position: sticky; top: 52px; height: calc(100vh - 52px);
-      overflow-y: auto; overflow-x: hidden;
+      width: var(--sidebar); flex-shrink: 0;
+      padding: 36px 16px 36px 24px;
+      position: sticky; top: 50px;
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+      font-family: 'Inter', sans-serif;
     }
-    .toc-wrap::-webkit-scrollbar { width: 4px; }
-    .toc-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-    .toc-title {
-      font-size: 0.72em; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--text3); margin-bottom: 16px;
-      display: flex; align-items: center; gap: 6px;
+    .toc-wrap::-webkit-scrollbar { width: 3px; }
+    .toc-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .toc-hdr {
+      font-size: 0.68em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text3); margin-bottom: 14px;
     }
     .toc { list-style: none; }
-    .toc li { margin: 2px 0; }
+    .toc li { margin: 1px 0; }
     .toc a {
       display: block; padding: 5px 10px; border-radius: 6px;
-      color: var(--text3); text-decoration: none;
-      font-size: 0.83em; line-height: 1.5;
-      transition: all 0.15s;
+      color: var(--text3); text-decoration: none; font-size: 0.81em;
+      line-height: 1.5; transition: all 0.15s;
       border-left: 2px solid transparent;
     }
-    .toc a:hover { color: var(--text); background: var(--code-bg); }
-    .toc a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-bg); }
-    .toc .toc-h3 a { padding-left: 22px; font-size: 0.79em; }
+    .toc a:hover { color: var(--text); background: var(--border2); }
+    .toc a.on { color: var(--accent); border-left-color: var(--accent); background: var(--accent-bg); }
+    .toc .h3 a { padding-left: 20px; font-size: 0.77em; }
 
-    /* ── 主内容 ── */
+    /* ── 正文区 ── */
     .article-wrap {
       flex: 1; min-width: 0;
-      padding: 48px 48px 120px 40px;
       max-width: var(--content);
+      padding: 48px 48px 100px 36px;
     }
 
     /* ── 文章 Header ── */
-    .article-header { margin-bottom: 48px; }
-    .article-header .track-tag {
+    .a-header { margin-bottom: 40px; font-family: 'Inter', sans-serif; }
+    .a-header .track-tag {
       display: inline-block;
       background: var(--accent-bg); color: var(--accent);
-      border: 1px solid #c7dff7; border-radius: 20px;
-      padding: 3px 12px; font-size: 0.78em; font-weight: 600;
-      margin-bottom: 20px;
+      border: 1px solid #bfdbfe; border-radius: 20px;
+      padding: 3px 12px; font-size: 0.75em; font-weight: 600;
+      margin-bottom: 16px;
     }
-    .article-header h1 {
-      font-size: 2em; font-weight: 700; line-height: 1.35;
+    .a-header h1 {
+      font-family: 'LXGW WenKai', serif;
+      font-size: 1.9em; font-weight: 700; line-height: 1.35;
       color: var(--text); margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .article-header .meta {
-      font-size: 0.84em; color: var(--text3);
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-    }
-    .article-header .meta-dot { color: var(--border); }
-    .article-divider {
-      border: none; border-top: 1px solid var(--border);
-      margin: 32px 0;
-    }
-
-    /* ── 文章内容 ── */
-    .article-body { font-size: 1em; color: var(--text2); }
-
-    .article-body h2 {
-      font-size: 1.35em; font-weight: 700;
-      color: var(--text); margin: 56px 0 20px;
-      padding-bottom: 12px; border-bottom: 1px solid var(--border);
       letter-spacing: -0.01em;
     }
-    .article-body h2:first-child { margin-top: 0; }
-    .article-body h3 {
-      font-size: 1.1em; font-weight: 600;
-      color: var(--text); margin: 36px 0 14px;
+    .a-meta {
+      font-size: 0.82em; color: var(--text3);
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
     }
-    .article-body h4 {
-      font-size: 0.95em; font-weight: 600;
-      color: var(--text2); margin: 24px 0 10px;
-      text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.82em;
+    .a-meta span { display: flex; align-items: center; gap: 4px; }
+    .a-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 28px 0 36px;
     }
-    .article-body p {
-      margin: 18px 0; line-height: 1.9;
+
+    /* ── 正文 ── */
+    .a-body { color: var(--text2); }
+
+    .a-body h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25em; font-weight: 700;
+      color: var(--text); margin: 52px 0 18px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
     }
-    .article-body ul, .article-body ol {
-      padding-left: 28px; margin: 16px 0;
+    .a-body h2:first-child { margin-top: 0; }
+    .a-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05em; font-weight: 600;
+      color: var(--text); margin: 36px 0 12px;
     }
-    .article-body li { margin: 8px 0; line-height: 1.8; }
-    .article-body li > ul, .article-body li > ol { margin: 4px 0; }
-    .article-body strong { color: var(--text); font-weight: 600; }
-    .article-body em { font-style: italic; }
-    .article-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid #c7dff7; }
-    .article-body a:hover { border-bottom-color: var(--accent); }
-    .article-body hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .a-body h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82em; font-weight: 700;
+      color: var(--text3); margin: 24px 0 10px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .a-body p { margin: 16px 0; line-height: 1.95; }
+    .a-body ul, .a-body ol { padding-left: 26px; margin: 14px 0; }
+    .a-body li { margin: 7px 0; line-height: 1.85; }
+    .a-body strong { color: var(--text); font-weight: 700; }
+    .a-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid #bfdbfe; }
+    .a-body a:hover { border-bottom-color: var(--accent); }
+    .a-body hr { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
 
     /* 行内代码 */
-    .article-body code {
-      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    .a-body code {
+      font-family: 'JetBrains Mono', Consolas, monospace;
       background: var(--code-bg);
-      border: 1px solid var(--code-border);
+      border: 1px solid var(--border);
       padding: 2px 6px; border-radius: 4px;
-      font-size: 0.84em; color: #c7254e;
-      white-space: nowrap;
+      font-size: 0.83em; color: #be123c;
     }
 
     /* 代码块 */
-    .article-body pre {
+    .a-body pre {
       background: #1e2430;
-      border-radius: var(--radius);
-      padding: 0; margin: 28px 0;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      border-radius: 8px; padding: 0;
+      margin: 24px 0; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
-    .article-body pre code {
-      display: block; padding: 20px 24px;
-      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-      font-size: 0.85em; line-height: 1.7;
+    .a-body pre code {
+      display: block; overflow-x: auto;
+      padding: 20px 22px;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 0.84em; line-height: 1.7;
       color: #e2e8f0; background: none;
-      border: none; white-space: pre; overflow-x: auto;
+      border: none; border-radius: 0; white-space: pre;
     }
 
     /* 表格 */
-    .article-body table {
-      width: 100%; border-collapse: collapse; margin: 28px 0;
-      font-size: 0.9em; border-radius: var(--radius);
-      overflow: hidden; border: 1px solid var(--border);
+    .a-body table {
+      width: 100%; border-collapse: collapse;
+      margin: 24px 0; font-size: 0.88em;
+      border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
     }
-    .article-body th {
-      background: #f4f2ef; padding: 12px 16px;
+    .a-body th {
+      background: var(--border2); padding: 11px 14px;
       border-bottom: 1px solid var(--border);
       text-align: left; font-weight: 600; color: var(--text);
-      font-size: 0.88em;
     }
-    .article-body td {
-      padding: 11px 16px; border-bottom: 1px solid var(--border);
+    .a-body td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border2);
       color: var(--text2);
     }
-    .article-body tr:last-child td { border-bottom: none; }
-    .article-body tr:hover td { background: #fafaf8; }
+    .a-body tr:last-child td { border-bottom: none; }
+    .a-body tr:hover td { background: var(--border2); }
 
     /* 引用块 */
-    .article-body blockquote {
+    .a-body blockquote {
       border-left: 3px solid var(--accent);
       background: var(--accent-bg);
-      padding: 16px 20px; margin: 28px 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px; margin: 24px 0;
+      border-radius: 0 8px 8px 0;
       color: var(--text2);
     }
-    .article-body blockquote p { margin: 6px 0; }
-    .article-body blockquote strong { color: var(--accent); }
-
-    /* 提示框 */
-    .article-body blockquote:has(strong:first-child) { }
+    .a-body blockquote p { margin: 4px 0; }
 
     /* 图片 */
-    .article-body img {
-      max-width: 100%; border-radius: var(--radius);
-      margin: 24px 0; display: block;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    .a-body img {
+      max-width: 100%; border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: var(--shadow);
     }
 
-    /* ── 底部导航 ── */
+    /* ── 底部 ── */
     .post-footer {
-      margin-top: 80px; padding-top: 32px;
+      margin-top: 72px; padding-top: 28px;
       border-top: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
     }
-    .post-footer .back {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--accent); text-decoration: none; font-size: 0.9em;
-      padding: 10px 18px; border-radius: var(--radius);
-      background: var(--accent-bg); border: 1px solid #c7dff7;
-      transition: all 0.15s;
+    .post-footer a.back {
+      display: inline-flex; align-items: center; gap: 7px;
+      color: var(--accent); text-decoration: none;
+      font-size: 0.87em; font-weight: 500;
+      padding: 9px 16px; border-radius: 8px;
+      background: var(--accent-bg);
+      border: 1px solid #bfdbfe;
+      transition: background 0.15s;
     }
-    .post-footer .back:hover { background: #e0edff; }
+    .post-footer a.back:hover { background: #dbeafe; }
 
     /* ── 页脚 ── */
     .site-footer {
-      background: #f4f2ef; border-top: 1px solid var(--border);
-      padding: 24px; text-align: center;
-      color: var(--text3); font-size: 0.8em;
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 22px; text-align: center;
+      color: var(--text3); font-size: 0.79em;
+      font-family: 'Inter', sans-serif;
     }
     .site-footer a { color: var(--text3); text-decoration: none; }
 
-    /* ── Rouge 代码高亮 ── */
-    .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs { color: #8b949e; font-style: italic; }
-    .highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt { color: #ff7b72; }
-    .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #a5d6ff; }
-    .highlight .n, .highlight .na, .highlight .nb, .highlight .nc, .highlight .nd, .highlight .ne, .highlight .nf, .highlight .ni, .highlight .nl, .highlight .nn, .highlight .nt, .highlight .nv { color: #d2a8ff; }
-    .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo { color: #79c0ff; }
-    .highlight .o { color: #ff7b72; }
-    .highlight .p { color: #e2e8f0; }
-
     /* ── 响应式 ── */
-    @media (max-width: 900px) {
+    @media (max-width: 860px) {
       .toc-wrap { display: none; }
       .article-wrap { padding: 32px 20px 80px; }
-      .article-header h1 { font-size: 1.6em; }
+      .a-header h1 { font-size: 1.55em; }
     }
+
+    /* Rouge 代码着色 */
+    .highlight .c,.highlight .cm,.highlight .c1{color:#8b949e;font-style:italic}
+    .highlight .k,.highlight .kd,.highlight .kr{color:#f97316}
+    .highlight .s,.highlight .s2,.highlight .s1{color:#86efac}
+    .highlight .nf,.highlight .nc{color:#93c5fd}
+    .highlight .mi,.highlight .mf{color:#a5f3fc}
+    .highlight .o{color:#f472b6}
   </style>
 </head>
 <body>
 <div id="reading-bar"></div>
 
-<nav class="top-nav">
+<nav class="top-nav" style="font-family:'Inter',sans-serif">
   <a href="{{ '/' | relative_url }}">🏠 首页</a>
   <span class="sep">›</span>
-  {% if page.track %}
-    {% if page.track contains 'AI基础' %}<a href="{{ '/ai/' | relative_url }}">AI基础</a>{% endif %}
-    {% if page.track contains '大模型' %}<a href="{{ '/llm/' | relative_url }}">大模型</a>{% endif %}
-    {% if page.track contains 'Agent' %}<a href="{{ '/agent/' | relative_url }}">Agent</a>{% endif %}
-    {% if page.track contains 'Infra' %}<a href="{{ '/infra/' | relative_url }}">AI Infra</a>{% endif %}
-    {% if page.track contains '量化' %}<a href="{{ '/quant/' | relative_url }}">量化</a>{% endif %}
-    {% if page.track contains '智慧' %}<a href="{{ '/wisdom/' | relative_url }}">智慧心法</a>{% endif %}
-    <span class="sep">›</span>
-  {% endif %}
-  <span style="color:var(--text2);font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:300px">{{ page.title }}</span>
-  {% if page.track %}<span class="track-pill">{{ page.track }}</span>{% endif %}
+  {% if page.track contains 'AI基础' %}<a href="{{ '/ai/' | relative_url }}">AI基础</a>{% endif %}
+  {% if page.track contains '大模型' %}<a href="{{ '/llm/' | relative_url }}">大模型</a>{% endif %}
+  {% if page.track contains 'Agent' %}<a href="{{ '/agent/' | relative_url }}">Agent</a>{% endif %}
+  {% if page.track contains 'Infra' %}<a href="{{ '/infra/' | relative_url }}">AI Infra</a>{% endif %}
+  {% if page.track contains '量化' %}<a href="{{ '/quant/' | relative_url }}">量化</a>{% endif %}
+  {% if page.track contains '智慧' %}<a href="{{ '/wisdom/' | relative_url }}">智慧心法</a>{% endif %}
+  <span class="sep">›</span>
+  <span class="crumb">{{ page.title }}</span>
+  {% if page.track %}<span class="pill">{{ page.track }}</span>{% endif %}
 </nav>
 
 <div class="layout">
-  <!-- 左侧目录 -->
   <aside class="toc-wrap">
-    <div class="toc-title">📑 目录</div>
+    <div class="toc-hdr">📑 目录</div>
     <ul class="toc" id="toc"></ul>
   </aside>
 
-  <!-- 主内容 -->
   <main class="article-wrap">
-    <header class="article-header">
+    <header class="a-header">
       {% if page.track %}<span class="track-tag">{{ page.track }}</span>{% endif %}
       <h1>{{ page.title }}</h1>
-      <div class="meta">
+      <div class="a-meta">
         <span>🥚🥚的学习基地</span>
-        <span class="meta-dot">·</span>
-        <span id="word-count">计算中…</span>
-        <span class="meta-dot">·</span>
-        <span id="read-time">…分钟阅读</span>
+        <span>·</span>
+        <span id="wc">计算中…</span>
+        <span>·</span>
+        <span id="rt">…</span>
       </div>
     </header>
+    <hr class="a-divider">
 
-    <div class="article-body" id="article-body">
+    <div class="a-body" id="a-body">
       {{ content }}
     </div>
 
     <div class="post-footer">
-      {% if page.track %}
-        {% if page.track contains 'AI基础' %}<a class="back" href="{{ '/ai/' | relative_url }}">← 返回 AI基础 目录</a>{% endif %}
-        {% if page.track contains '大模型' %}<a class="back" href="{{ '/llm/' | relative_url }}">← 返回 大模型 目录</a>{% endif %}
-        {% if page.track contains 'Agent' %}<a class="back" href="{{ '/agent/' | relative_url }}">← 返回 Agent 目录</a>{% endif %}
-        {% if page.track contains 'Infra' %}<a class="back" href="{{ '/infra/' | relative_url }}">← 返回 AI Infra 目录</a>{% endif %}
-        {% if page.track contains '量化' %}<a class="back" href="{{ '/quant/' | relative_url }}">← 返回 量化 目录</a>{% endif %}
-        {% if page.track contains '智慧' %}<a class="back" href="{{ '/wisdom/' | relative_url }}">← 返回 智慧心法 目录</a>{% endif %}
-      {% else %}
-        <a class="back" href="{{ '/' | relative_url }}">← 返回首页</a>
-      {% endif %}
+      {% if page.track contains 'AI基础' %}<a class="back" href="{{ '/ai/' | relative_url }}">← 返回 AI基础</a>{% endif %}
+      {% if page.track contains '大模型' %}<a class="back" href="{{ '/llm/' | relative_url }}">← 返回 大模型</a>{% endif %}
+      {% if page.track contains 'Agent' %}<a class="back" href="{{ '/agent/' | relative_url }}">← 返回 Agent</a>{% endif %}
+      {% if page.track contains 'Infra' %}<a class="back" href="{{ '/infra/' | relative_url }}">← 返回 AI Infra</a>{% endif %}
+      {% if page.track contains '量化' %}<a class="back" href="{{ '/quant/' | relative_url }}">← 返回 量化</a>{% endif %}
+      {% if page.track contains '智慧' %}<a class="back" href="{{ '/wisdom/' | relative_url }}">← 返回 智慧心法</a>{% endif %}
+      {% unless page.track %}<a class="back" href="{{ '/' | relative_url }}">← 返回首页</a>{% endunless %}
     </div>
   </main>
 </div>
 
 <footer class="site-footer">
-  🥚🥚的学习基地 · 由五位 AI 助教并行编写 ·
+  🥚🥚的学习基地 · 六位 AI 助教并行编写 ·
   <a href="https://github.com/Lingbo-Huang/dandan-learn">GitHub</a>
 </footer>
 
@@ -341,21 +333,22 @@ window.addEventListener('scroll', function() {
   document.getElementById('reading-bar').style.width = (h > 0 ? s/h*100 : 0) + '%';
 });
 
-// 字数与阅读时间
 document.addEventListener('DOMContentLoaded', function() {
-  var body = document.getElementById('article-body');
-  var text = body ? body.innerText : '';
-  var wc = text.replace(/\s/g,'').length;
-  document.getElementById('word-count').textContent = wc.toLocaleString() + ' 字';
-  document.getElementById('read-time').textContent = Math.ceil(wc / 500) + ' 分钟阅读';
+  var body = document.getElementById('a-body');
+  if (!body) return;
+
+  // 字数/阅读时间
+  var wc = (body.innerText || '').replace(/\s/g,'').length;
+  document.getElementById('wc').textContent = wc.toLocaleString() + ' 字';
+  document.getElementById('rt').textContent = Math.max(1, Math.ceil(wc/500)) + ' 分钟阅读';
 
   // 生成目录
   var toc = document.getElementById('toc');
-  var headings = body ? body.querySelectorAll('h2, h3') : [];
-  headings.forEach(function(h, i) {
-    if (!h.id) h.id = 'heading-' + i;
+  var hs = body.querySelectorAll('h2,h3');
+  hs.forEach(function(h, i) {
+    if (!h.id) h.id = 'h' + i;
     var li = document.createElement('li');
-    li.className = h.tagName === 'H3' ? 'toc-h3' : '';
+    li.className = h.tagName === 'H3' ? 'h3' : '';
     var a = document.createElement('a');
     a.href = '#' + h.id;
     a.textContent = h.textContent;
@@ -363,21 +356,18 @@ document.addEventListener('DOMContentLoaded', function() {
     toc.appendChild(li);
   });
 
-  // 目录高亮（Intersection Observer）
-  if (headings.length > 0) {
-    var observer = new IntersectionObserver(function(entries) {
+  // 滚动高亮
+  if (hs.length) {
+    var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
-        var id = e.target.id;
-        var link = toc.querySelector('a[href="#' + id + '"]');
-        if (link) {
-          if (e.isIntersecting) {
-            toc.querySelectorAll('a').forEach(function(a) { a.classList.remove('active'); });
-            link.classList.add('active');
-          }
+        if (e.isIntersecting) {
+          toc.querySelectorAll('a').forEach(function(a){ a.classList.remove('on'); });
+          var a = toc.querySelector('a[href="#' + e.target.id + '"]');
+          if (a) { a.classList.add('on'); a.scrollIntoView({block:'nearest'}); }
         }
       });
-    }, { rootMargin: '-60px 0px -70% 0px' });
-    headings.forEach(function(h) { observer.observe(h); });
+    }, { rootMargin: '-52px 0px -65% 0px' });
+    hs.forEach(function(h){ obs.observe(h); });
   }
 });
 </script>
