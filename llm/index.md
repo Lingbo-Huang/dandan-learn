@@ -166,4 +166,46 @@ title: 大模型 LLM
     </div>
   </div>
 
+
+  <div class="phase c-llm" style="margin-top:32px;border-top:3px solid #bc8cff">
+    <div class="phase-header">
+      <div class="phase-left">
+        <div class="phase-icon" style="background:rgba(188,140,255,0.15)">🎯</div>
+        <div>
+          <div class="phase-title">2026 大模型求职全景指南</div>
+          <div class="phase-meta">岗位分析 · Python工程栈 · RAG · Agent · Harness · 微调 · LLMOps · 安全合规</div>
+        </div>
+      </div>
+      <div class="phase-right"><span class="phase-arrow">▶</span></div>
+    </div>
+    <div class="phase-body">
+      <div class="week-block">
+        <div class="week-label">📋 求职准备</div>
+        <div class="day-grid">
+          <a href="{{ '/llm/job-guide/' | relative_url }}" class="day-link plan">🗺️ 全景总览</a>
+          <a href="{{ '/llm/job-guide/skill-map' | relative_url }}" class="day-link">✅ 能力自查地图</a>
+          <a href="{{ '/llm/job-guide/learning-roadmap' | relative_url }}" class="day-link">📅 3-6月学习路线</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">🔧 工程技能（应用工程师必备）</div>
+        <div class="day-grid">
+          <a href="{{ '/llm/job-guide/python-engineering' | relative_url }}" class="day-link">Python工程栈</a>
+          <a href="{{ '/llm/job-guide/rag-engineering' | relative_url }}" class="day-link">RAG全链路工程化</a>
+          <a href="{{ '/llm/job-guide/agent-development' | relative_url }}" class="day-link">Agent开发实战</a>
+          <a href="{{ '/llm/job-guide/harness-architecture' | relative_url }}" class="day-link">Harness架构设计</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">🧠 算法与系统（算法/系统工程师必备）</div>
+        <div class="day-grid">
+          <a href="{{ '/llm/job-guide/lora-finetuning' | relative_url }}" class="day-link">LoRA/QLoRA微调实战</a>
+          <a href="{{ '/llm/job-guide/inference-optimization' | relative_url }}" class="day-link">推理加速与量化</a>
+          <a href="{{ '/llm/job-guide/llmops' | relative_url }}" class="day-link">LLMOps全链路</a>
+          <a href="{{ '/llm/job-guide/safety-compliance' | relative_url }}" class="day-link">安全合规与幻觉治理</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
