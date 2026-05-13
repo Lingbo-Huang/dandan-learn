@@ -59,7 +59,16 @@ title: 智慧心法
       </div>
       <div class="week-block">
         <div class="week-label">Week 3 · 历史周期律——为什么历史总在重复</div>
-        <div class="day-grid"><p class="coming">🔜 即将更新…</p></div>
+        <div class="day-grid">
+          <a href="{{ '/wisdom/week03/wisdom-w3-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-cycle-law' | relative_url }}" class="day-link">D1 · 黄炎培之问</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-four-stages' | relative_url }}" class="day-link">D2 · 兴衰四阶段</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-tech-cycle' | relative_url }}" class="day-link">D3 · 技术周期</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-financial-cycle' | relative_url }}" class="day-link">D4 · 金融泡沫</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-geopolitics' | relative_url }}" class="day-link">D5 · 地缘政治周期</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-ai-cycle' | relative_url }}" class="day-link">D6 · AI 时代周期</a>
+          <a href="{{ '/wisdom/week03/wisdom-w3-capstone' | relative_url }}" class="day-link">D7 · 综合决策框架</a>
+        </div>
       </div>
       <div class="week-block">
         <div class="week-label">Week 4–8 · 时势/偶然与必然/危机中的机遇…</div>
