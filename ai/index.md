@@ -58,7 +58,20 @@ title: AI 基础
         </div>
       </div>
       <div class="week-block">
-        <div class="week-label">Week 3–8 · 微积分 / 概率统计 / 信息论</div>
+        <div class="week-label">Week 3 · 监督学习·回归</div>
+        <div class="day-grid">
+          <a href="{{ '/ai/week03/ai-w3-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/ai/week03/ai-w3-ml-intro' | relative_url }}" class="day-link">D1 · 机器学习入门</a>
+          <a href="{{ '/ai/week03/ai-w3-linear-regression' | relative_url }}" class="day-link">D2 · 线性回归</a>
+          <a href="{{ '/ai/week03/ai-w3-gradient-descent' | relative_url }}" class="day-link">D3 · 梯度下降</a>
+          <a href="{{ '/ai/week03/ai-w3-polynomial' | relative_url }}" class="day-link">D4 · 多项式回归</a>
+          <a href="{{ '/ai/week03/ai-w3-regularization' | relative_url }}" class="day-link">D5 · 正则化</a>
+          <a href="{{ '/ai/week03/ai-w3-sklearn-regression' | relative_url }}" class="day-link">D6 · sklearn 实战</a>
+          <a href="{{ '/ai/week03/ai-w3-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 4–8 · 微积分 / 概率统计 / 信息论</div>
         <p class="coming">🔜 内容生成中，每周持续更新…</p>
       </div>
     </div>
