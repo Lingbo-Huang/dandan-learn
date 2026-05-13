@@ -50,10 +50,46 @@ title: 量化 Quant
           <a href="{{ '/quant/week02/quant-w2-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
         </div>
       </div>
-      <div class="week-block"><div class="week-label">Week 3–8</div><p class="coming">🔜 内容生成中…</p></div>
+      <div class="week-block">
+        <div class="week-label">Week 3 · 概率与统计基础</div>
+        <div class="day-grid">
+          <a href="{{ '/quant/week03/quant-w3-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/quant/week03/quant-w3-descriptive-stats' | relative_url }}" class="day-link">D1 · 描述统计</a>
+          <a href="{{ '/quant/week03/quant-w3-distributions' | relative_url }}" class="day-link">D2 · 概率分布</a>
+          <a href="{{ '/quant/week03/quant-w3-hypothesis-testing' | relative_url }}" class="day-link">D3 · 假设检验</a>
+          <a href="{{ '/quant/week03/quant-w3-correlation' | relative_url }}" class="day-link">D4 · 相关分析</a>
+          <a href="{{ '/quant/week03/quant-w3-regression' | relative_url }}" class="day-link">D5 · 线性回归</a>
+          <a href="{{ '/quant/week03/quant-w3-factor-analysis' | relative_url }}" class="day-link">D6 · 因子分析实战</a>
+          <a href="{{ '/quant/week03/quant-w3-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
+        </div>
+      </div>
+      <div class="week-block"><div class="week-label">Week 4–8</div><p class="coming">🔜 内容生成中…</p></div>
     </div>
   </div>
   <div class="phase c-quant"><div class="phase-header"><div class="phase-left"><div class="phase-icon" style="background:rgba(63,185,80,0.1)">📊</div><div><div class="phase-title">Phase 2 · 因子与策略</div><div class="phase-meta">W9–W18 · 动量/价值/质量/CTA/统计套利</div></div></div><div class="phase-right"><span class="phase-progress">即将开启</span><span class="phase-arrow">▶</span></div></div><div class="phase-body"><p class="coming">🔜 即将开启…</p></div></div>
   <div class="phase c-quant"><div class="phase-header"><div class="phase-left"><div class="phase-icon" style="background:rgba(63,185,80,0.1)">🔁</div><div><div class="phase-title">Phase 3 · 回测体系</div><div class="phase-meta">W19–W26 · Backtrader/Qlib/过拟合</div></div></div><div class="phase-right"><span class="phase-progress">即将开启</span><span class="phase-arrow">▶</span></div></div><div class="phase-body"><p class="coming">🔜 即将开启…</p></div></div>
   <div class="phase c-quant"><div class="phase-header"><div class="phase-left"><div class="phase-icon" style="background:rgba(63,185,80,0.1)">🛡️</div><div><div class="phase-title">Phase 4–6 · 风控实盘 / AI量化 / 综合策略</div><div class="phase-meta">W27–W52</div></div></div><div class="phase-right"><span class="phase-progress">即将开启</span><span class="phase-arrow">▶</span></div></div><div class="phase-body"><p class="coming">🔜 即将开启…</p></div></div>
+
+  <div class="phase c-quant">
+    <div class="phase-header">
+      <div class="phase-left">
+        <div class="phase-icon" style="background:rgba(63,185,80,0.1)">📚</div>
+        <div>
+          <div class="phase-title">精选资料库</div>
+          <div class="phase-meta">WhaleQuant · AI Quant Book · Awesome-QuantDev-Learn 三大开源项目精华</div>
+        </div>
+      </div>
+      <div class="phase-right"><span class="phase-progress">14 篇</span><span class="phase-arrow">▶</span></div>
+    </div>
+    <div class="phase-body">
+      <div class="week-block">
+        <p>精选整合三个顶级开源量化项目的核心内容，涵盖量化全流程、AI量化实战、工程系统开发。</p>
+        <div class="day-grid">
+          <a href="{{ '/quant/library' | relative_url }}" class="day-link plan" style="grid-column: span 2">📚 进入量化资料库（14 篇精选文章）→</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 </div>
