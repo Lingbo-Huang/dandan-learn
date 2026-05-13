@@ -1,7 +1,7 @@
 title: 🥚🥚的学习基地
 description: AI · 大模型 · Agent · AI Infra · 量化 —— 一年速成，从零到顶尖
-url: "https://lingbo-huang.github.io"
-baseurl: "/dandan-learn"
+url: "https://dandan-learn.vercel.app"
+baseurl: ""
 lang: zh-CN
 
 markdown: kramdown
