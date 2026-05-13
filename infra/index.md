@@ -49,7 +49,20 @@ title: AI Infra
           <a href="{{ '/infra/week02/infra-w2-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
         </div>
       </div>
-      <div class="week-block"><div class="week-label">Week 3–8</div><p class="coming">🔜 内容生成中…</p></div>
+      <div class="week-block">
+        <div class="week-label">Week 3 · cuBLAS / cuDNN 深度解析</div>
+        <div class="day-grid">
+          <a href="{{ '/infra/week03/infra-w3-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/infra/week03/infra-w3-cublas-gemm' | relative_url }}" class="day-link">D1 · GEMM 深度解析</a>
+          <a href="{{ '/infra/week03/infra-w3-cublas-api' | relative_url }}" class="day-link">D2 · cuBLAS API 调优</a>
+          <a href="{{ '/infra/week03/infra-w3-cudnn-conv' | relative_url }}" class="day-link">D3 · cuDNN 卷积算法</a>
+          <a href="{{ '/infra/week03/infra-w3-workspace-fusion' | relative_url }}" class="day-link">D4 · 算子融合</a>
+          <a href="{{ '/infra/week03/infra-w3-memory-layout' | relative_url }}" class="day-link">D5 · NHWC vs NCHW</a>
+          <a href="{{ '/infra/week03/infra-w3-profiling' | relative_url }}" class="day-link">D6 · 综合调优</a>
+          <a href="{{ '/infra/week03/infra-w3-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
+        </div>
+      </div>
+      <div class="week-block"><div class="week-label">Week 4–8</div><p class="coming">🔜 内容生成中…</p></div>
     </div>
   </div>
   <div class="phase c-infra"><div class="phase-header"><div class="phase-left"><div class="phase-icon" style="background:rgba(255,123,114,0.1)">🚂</div><div><div class="phase-title">Phase 2 · 训练系统</div><div class="phase-meta">W9–W16 · DeepSpeed/Megatron/ZeRO</div></div></div><div class="phase-right"><span class="phase-progress">即将开启</span><span class="phase-arrow">▶</span></div></div><div class="phase-body"><p class="coming">🔜 即将开启…</p></div></div>
