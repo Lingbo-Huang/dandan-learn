@@ -1,5 +1,5 @@
 {
-  "buildCommand": "LANG=C.UTF-8 LC_ALL=C.UTF-8 bundle exec jekyll build",
+  "buildCommand": "LANG=C.UTF-8 LC_ALL=C.UTF-8 RUBYOPT="-E utf-8:utf-8" bundle exec jekyll build",
   "outputDirectory": "_site",
   "installCommand": "gem install bundler && bundle install",
   "framework": null
