@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 attention code"
+---
+
 # D6：完整代码手写实现 Attention
 
 > **Week 2 · Day 6** | 大模型学习路线
