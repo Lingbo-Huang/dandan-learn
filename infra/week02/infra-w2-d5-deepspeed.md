@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d5 deepspeed"
+---
+
 # D5：DeepSpeed 入门配置与实战
 
 > AI Infra Week2 · Day 5 | 作者：🥚🥚5号 ai infra
