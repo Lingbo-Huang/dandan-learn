@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 langchain chains"
+---
+
 # LangChain 链与工具：LCEL、Tool 绑定与 Memory
 
 > **Day 2** · 预计学习时间：4-5 小时  
