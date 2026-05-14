@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 attention complexity"
+---
+
 # D4：注意力复杂度分析与优化
 
 > **Week 2 · Day 4** | 大模型学习路线
