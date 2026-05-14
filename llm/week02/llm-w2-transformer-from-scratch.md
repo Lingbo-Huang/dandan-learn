@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 transformer from scratch"
+---
+
 # D7：综合实战——从零搭建小型 Transformer
 
 > **Week 2 · Day 7** | 大模型学习路线
