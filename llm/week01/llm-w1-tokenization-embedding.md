@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 tokenization embedding"
+---
+
 # Day 2：Transformer 鸟瞰——整体结构与信息流
 
 ---
