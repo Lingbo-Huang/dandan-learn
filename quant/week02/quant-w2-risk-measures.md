@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 risk measures"
+---
+
 # D4：风险度量（VaR / CVaR / 最大回撤）
 
 > **Week 2 · Day 4** | 量化金融基础系列
