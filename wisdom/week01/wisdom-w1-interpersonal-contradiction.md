@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 interpersonal contradiction"
+---
+
 # D6：人际博弈——职场/婚姻/创业中的矛盾处理
 
 *智慧心法 · Week 1 · 第六天*
