@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 gpu vs cpu"
+---
+
 # D1：GPU vs CPU——为什么 GPU 能加速深度学习？
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
