@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 eigenvalues"
+---
+
 # D1 · 特征值（Eigenvalues）
 
 > **Week 2 · Day 1**  
