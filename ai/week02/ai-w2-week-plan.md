@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 week plan"
+---
+
 # Week 2 学习计划：线性代数② — 特征值 / 特征向量 / SVD / PCA
 
 > **系列**：AI 基础线 · 线性代数模块  
