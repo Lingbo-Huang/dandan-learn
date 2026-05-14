@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 attention variants"
+---
+
 # D5：注意力变体——Sparse / Linear / Flash
 
 > **Week 2 · Day 5** | 大模型学习路线
