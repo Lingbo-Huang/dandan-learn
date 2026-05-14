@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w1 week plan"
+---
+
 # 量化学习线 · Week 1 周规划总览
 
 > **主题：金融市场概览**
