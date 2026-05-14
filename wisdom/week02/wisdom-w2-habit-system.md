@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 habit system"
+---
+
 # D5：习惯系统——微小行动如何重塑人生
 
 *智慧心法 · Week 2 · 第五天*
