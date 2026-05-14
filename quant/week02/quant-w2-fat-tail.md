@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 fat tail"
+---
+
 # D3：胖尾分布与厚尾统计
 
 > **Week 2 · Day 3** | 量化金融基础系列
