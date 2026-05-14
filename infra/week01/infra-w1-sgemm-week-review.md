@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 sgemm week review"
+---
+
 # D7：Week1 综合实战——实现 SGEMM 并与 cuBLAS 对比
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
