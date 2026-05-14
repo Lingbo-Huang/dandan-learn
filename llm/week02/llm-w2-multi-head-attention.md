@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 multi head attention"
+---
+
 # D3：多头注意力机制实现
 
 > **Week 2 · Day 3** | 大模型学习路线
