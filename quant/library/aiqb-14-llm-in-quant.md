@@ -1,235 +1,446 @@
 ---
 layout: default
-title: "AIQuantBook L14 · LLM 在量化中的应用"
+title: "LLM在量化中的应用"
 source: "https://github.com/waylandzhang/ai-quant-book"
 ---
 
-# L14 · LLM 在量化中的应用
+> **来源**：[AI Quant Book · L14](https://github.com/waylandzhang/ai-quant-book)
 
-> **来源**：[AI Quant Book](https://github.com/waylandzhang/ai-quant-book) · waylandzhang
+# 第 14 课：LLM 在量化中的应用
 
----
-
-## LLM 能做什么？
-
-量化 + LLM 的交叉点：
-
-```
-1. 另类数据处理
-   ├── 财报/公告的情绪分析
-   ├── 新闻事件的影响评估
-   └── 社交媒体舆情量化
-
-2. 策略研究辅助
-   ├── 自然语言描述策略逻辑
-   ├── 代码生成与调试
-   └── 文献综述与知识提取
-
-3. 智能分析助手
-   ├── 自然语言查询数据库
-   ├── 研报解读与摘要
-   └── 多模态信息融合
-
-4. Agent 化策略（前沿）
-   ├── 自主研究因子
-   ├── 自动回测和迭代
-   └── 多智能体协作
-```
+> **LLM 是最强大的研究助理，但最差劲的交易员。让它做擅长的事。**
 
 ---
 
-## 一、情绪因子：用 LLM 分析财报
+## GPT 交易员的幻想与现实
 
-```python
-from openai import OpenAI
-import pandas as pd
+2023 年，一个团队做了一个实验：让 GPT-4 直接做交易决策。
 
-client = OpenAI()
+他们给 GPT-4 提供：
+- 过去 20 天的价格数据
+- 最新的财经新闻
+- 当前持仓
 
-def analyze_earnings_sentiment(text: str) -> dict:
-    """
-    分析财报/公告的情绪
-    返回：{sentiment, confidence, key_points}
-    """
-    prompt = f"""你是一位专业的金融分析师。请分析以下上市公司公告的情绪倾向。
+然后问："应该买入、卖出还是持有？"
 
-公告内容：
-{text[:3000]}  # 限制长度
+**3 个月后的结果**：
 
-请以JSON格式返回：
-{{
-  "sentiment": "positive/neutral/negative",
-  "confidence": 0-1之间的小数,
-  "revenue_outlook": "positive/neutral/negative",
-  "profit_outlook": "positive/neutral/negative",
-  "key_positives": ["积极因素1", "积极因素2"],
-  "key_risks": ["风险1", "风险2"],
-  "summary": "一句话总结"
-}}"""
-    
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-        response_format={"type": "json_object"},
-        temperature=0
-    )
-    
-    import json
-    return json.loads(response.choices[0].message.content)
+| 指标 | GPT-4 策略 | 随机策略 | 标普 500 |
+|-----|-----------|---------|----------|
+| 收益率 | -12% | -3% | +8% |
+| 夏普比率 | -0.8 | -0.2 | 0.5 |
+| 最大回撤 | 25% | 18% | 10% |
 
-# 批量处理财报
-def batch_analyze_reports(reports: list[dict], 
-                            delay: float = 0.5) -> pd.DataFrame:
-    """
-    批量分析财报情绪，构建情绪因子
-    reports: [{'ts_code': '000001.SZ', 'date': '2024-01-01', 'content': '...'}]
-    """
-    import time
-    results = []
-    
-    for report in reports:
-        try:
-            sentiment = analyze_earnings_sentiment(report['content'])
-            results.append({
-                'ts_code': report['ts_code'],
-                'date': report['date'],
-                **sentiment
-            })
-            time.sleep(delay)  # 避免触发限速
-        except Exception as e:
-            print(f"Error processing {report['ts_code']}: {e}")
-    
-    df = pd.DataFrame(results)
-    
-    # 情绪数值化
-    sentiment_map = {'positive': 1, 'neutral': 0, 'negative': -1}
-    df['sentiment_score'] = df['sentiment'].map(sentiment_map)
-    df['sentiment_factor'] = df['sentiment_score'] * df['confidence']
-    
-    return df
-```
+**GPT-4 甚至跑输随机策略。**
+
+**为什么失败？**
+
+1. **幻觉问题**：GPT-4 会编造不存在的"市场规律"
+2. **数学能力弱**：无法准确计算收益率、波动率
+3. **无记忆**：每次调用都是独立的，无法积累经验
+4. **高延迟**：一次推理需要几秒，错过快速行情
+5. **不可复现**：同样输入可能产生不同输出
+
+**但同一时期**，用 GPT-4 做财报分析的团队报告：
+
+- 财报解读质量提升 3 倍
+- 研究报告生成时间从 4 小时降到 30 分钟
+- 新闻情感分析准确率 85%
+
+**结论**：LLM 不适合直接交易，但在研究和分析中威力巨大。
 
 ---
 
-## 二、自然语言查询数据
+## 14.1 LLM 的正确定位
 
-```python
-from openai import OpenAI
-import pandas as pd
-import sqlite3
+### LLM 能做什么？
 
-client = OpenAI()
+| 能力 | 量化应用 | 价值等级 |
+|-----|---------|---------|
+| **文本理解** | 财报解读、新闻分析 | ⭐⭐⭐⭐⭐ |
+| **信息抽取** | 从 10-K 中提取关键指标 | ⭐⭐⭐⭐⭐ |
+| **生成报告** | 策略诊断报告、复盘总结 | ⭐⭐⭐⭐ |
+| **代码生成** | 辅助写回测代码 | ⭐⭐⭐⭐ |
+| **知识问答** | 解释金融概念 | ⭐⭐⭐ |
 
-SCHEMA = """
-数据库表结构：
-- daily_prices: ts_code, trade_date, open, high, low, close, volume, pct_chg
-- company_info: ts_code, name, industry, market_cap
-- financial_data: ts_code, report_date, roe, eps, revenue_growth, profit_growth
-"""
+### LLM 不能做什么？
 
-def nl_to_sql(question: str) -> str:
-    """将自然语言问题转换为 SQL 查询"""
-    prompt = f"""根据以下数据库结构，将用户的自然语言问题转换为 SQL 查询。
-只返回 SQL，不要任何解释。
+| 尝试 | 为什么失败 | 替代方案 |
+|-----|-----------|---------|
+| **直接预测价格** | 无法访问实时数据，计算不准 | 传统 ML 模型 |
+| **实时交易决策** | 延迟太高，不可复现 | 规则系统 + ML |
+| **精确计算** | 大数运算错误率高 | 专门计算模块 |
+| **长期记忆** | 上下文有限，无法积累 | 外部知识库 |
 
-{SCHEMA}
+### 核心原则：LLM 作为增强层
 
-用户问题：{question}
+![LLM 架构定位](assets/llm-architecture-layers.svg)
 
-SQL："""
-    
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0
-    )
-    
-    return response.choices[0].message.content.strip()
+---
 
-def query_data(question: str, db_path: str = 'quant.db') -> pd.DataFrame:
-    """自然语言查询数据库"""
-    sql = nl_to_sql(question)
-    print(f"生成的 SQL：\n{sql}\n")
-    
-    conn = sqlite3.connect(db_path)
-    result = pd.read_sql(sql, conn)
-    conn.close()
-    
-    return result
+## 14.2 新闻与情感分析
 
-# 使用示例
-# result = query_data("找出最近一个季度ROE超过20%且市值在50-200亿之间的股票")
-# result = query_data("过去一年涨幅最大的10只电子行业股票")
+### 应用场景
+
+从财经新闻中提取交易相关信息：
+
+| 新闻类型 | 提取内容 | 量化价值 |
+|---------|---------|---------|
+| **财报发布** | 超预期/低预期、指引调整 | 事件驱动信号 |
+| **产品新闻** | 新品发布、召回、合作 | 基本面变化 |
+| **宏观政策** | 利率决议、监管变化 | 系统性风险 |
+| **分析师观点** | 评级变化、目标价调整 | 情绪指标 |
+
+### 情感分析示例
+
+**输入新闻**：
+> Apple reported quarterly revenue of $123 billion, beating Wall Street expectations of $118 billion. However, iPhone sales in China declined 15% year-over-year due to increased competition from Huawei.
+
+**LLM 提取**：
+```json
+{
+  "company": "AAPL",
+  "event_type": "earnings",
+  "sentiment_overall": 0.6,
+  "key_points": [
+    {"topic": "revenue", "sentiment": 0.8, "value": "beat by 4%"},
+    {"topic": "china_iphone", "sentiment": -0.7, "value": "-15% YoY"}
+  ],
+  "trading_signal": "mixed",
+  "confidence": 0.7
+}
+```
+
+**如何使用**：
+- 不直接交易，而是作为信号的输入特征之一
+- 与价格动量、技术指标结合
+- 用历史数据验证 LLM 情感的预测力（回测）
+
+### 提示工程关键点
+
+**差的提示**：
+> 这条新闻是利好还是利空？
+
+**好的提示**：
+```
+你是一个金融分析师。请分析以下新闻：
+[新闻内容]
+
+请按以下格式输出：
+1. 涉及公司/资产（股票代码）
+2. 事件类型（财报/产品/政策/其他）
+3. 整体情感分数（-1 到 1，-1 极度负面，1 极度正面）
+4. 3 个关键信息点，每个包含主题、情感分数、具体数值
+5. 对短期价格的可能影响（涨/跌/中性）
+6. 置信度（0 到 1）
+
+只输出 JSON，不要解释。
 ```
 
 ---
 
-## 三、LLM Agent 策略研究
+## 14.3 财报分析自动化
 
-```python
-from langchain_openai import ChatOpenAI
-from langchain_core.tools import tool
-from langchain.agents import create_tool_calling_agent, AgentExecutor
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+### 10-K/10-Q 信息抽取
 
-@tool
-def get_factor_ic(factor_name: str, lookback_months: int = 12) -> str:
-    """计算因子的历史IC（信息系数）。输入因子名称和回测月数。"""
-    # 实际中调用因子计算引擎
-    # 这里返回模拟结果
-    import random
-    ic = random.uniform(-0.05, 0.15)
-    icir = ic / random.uniform(0.02, 0.08)
-    return f"因子 {factor_name} 过去{lookback_months}个月：IC均值={ic:.4f}, ICIR={icir:.2f}"
+美股上市公司的年报（10-K）和季报（10-Q）包含大量信息，但篇幅通常超过 100 页。
 
-@tool
-def run_backtest(strategy_description: str, start_date: str, end_date: str) -> str:
-    """根据策略描述运行回测。"""
-    # 实际中调用回测引擎
-    return f"回测完成（{start_date}→{end_date}）：年化收益=12.3%, 夏普=1.45, 最大回撤=-15.2%"
+**LLM 可以自动提取**：
 
-@tool
-def search_academic_papers(topic: str) -> str:
-    """搜索相关学术论文。"""
-    # 实际中调用学术搜索 API
-    return f"找到 {topic} 相关论文：\n1. Fama & French (1992) - 价值因子\n2. Jegadeesh (1993) - 动量因子"
+| 提取内容 | 位置 | 用途 |
+|---------|------|------|
+| 收入增速 | Financial Statements | 基本面筛选 |
+| 毛利率变化 | MD&A | 盈利能力趋势 |
+| 风险因素变化 | Risk Factors | 风险预警 |
+| 管理层讨论语气 | MD&A | 情绪指标 |
+| 诉讼进展 | Legal Proceedings | 事件风险 |
 
-llm = ChatOpenAI(model="gpt-4o", temperature=0)
-tools = [get_factor_ic, run_backtest, search_academic_papers]
+### 结构化提取流程
 
-system_prompt = """你是一位专业的量化研究助手。
-你可以使用工具来研究因子、运行回测和查找文献。
-请系统性地分析用户的研究问题，给出有数据支撑的建议。"""
-
-prompt = ChatPromptTemplate.from_messages([
-    ("system", system_prompt),
-    ("human", "{input}"),
-    MessagesPlaceholder(variable_name="agent_scratchpad"),
-])
-
-agent = create_tool_calling_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
-
-# 使用
-result = agent_executor.invoke({
-    "input": "请研究一下低波动因子的有效性，包括学术文献支持、历史IC表现，以及一个简单的策略回测"
-})
-print(result['output'])
 ```
+┌─────────────────┐
+│  下载 10-K PDF   │
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│   PDF → 文本    │
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ 分段（按章节）   │
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ LLM 逐段提取     │  ← 每段单独处理，避免上下文过长
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ 结构化数据存储   │  → 数据库，供回测使用
+└─────────────────┘
+```
+
+### 财报语气变化检测
+
+对比同一公司连续两期财报中 MD&A 的语气变化：
+
+| 上期表述 | 本期表述 | 信号 |
+|---------|---------|------|
+| "我们预期增长" | "我们保持谨慎乐观" | 语气转弱 |
+| "面临挑战" | "面临重大挑战" | 风险加剧 |
+| "正在探索" | "已经启动" | 进度加速 |
+
+**注意**：语气变化是**相对指标**，需要对比历史才有意义。
 
 ---
 
-## 关键认识
+## 14.4 研究报告生成
 
-1. **LLM 最擅长的是处理非结构化文本**：财报情绪、新闻影响是真正的 Alpha 来源
-2. **自然语言→SQL**：让非技术的投研人员直接查数据，提高研究效率
-3. **Agent 策略研究**：自动化因子挖掘流程，但需要人类审核
-4. **局限性**：LLM 不能替代量化的数学基础，只是加速工具
+### 策略诊断报告
+
+让 LLM 帮你写复盘报告：
+
+**输入**：
+```
+策略名称：动量策略 v2.3
+时间范围：2024-01-01 至 2024-03-31
+表现数据：
+  - 收益率：+8.5%
+  - 基准收益：+12.0%
+  - 最大回撤：-6.2%
+  - 夏普比率：1.2
+  - 换手率：420%
+
+交易明细：（附上 CSV）
+```
+
+**LLM 输出**：
+```
+# 动量策略 v2.3 Q1 2024 复盘报告
+
+## 摘要
+策略在 Q1 跑输基准 3.5%，主要原因是 2 月震荡期连续止损。
+
+## 核心问题诊断
+1. **高换手成本**：420% 换手率意味着约 2.1% 的年化交易成本
+2. **2 月表现异常**：2 月收益 -4.3%，占全期回撤的 70%
+3. **板块集中**：科技股持仓占比 65%，缺乏分散
+
+## 改进建议
+1. 增加持仓时间过滤器，减少短期噪音交易
+2. 在 ADX < 20 时降低仓位或暂停策略
+3. 加入板块分散约束，单板块 < 30%
+
+## 下一步行动
+- [ ] 回测增加 ADX 过滤后的表现
+- [ ] 测试最低持仓周期 = 3 天的效果
+```
+
+### 报告质量控制
+
+LLM 生成的报告需要验证：
+
+| 检查项 | 风险 | 应对 |
+|-------|------|------|
+| **数据准确性** | LLM 可能编造数据 | 关键数据从源头提取，不让 LLM 计算 |
+| **因果错误** | 相关性误判为因果 | 人工复核关键结论 |
+| **遗漏重要信息** | 只看到部分输入 | 检查是否覆盖所有输入维度 |
+
+---
+
+## 14.5 LLM 安全约束
+
+### 为什么需要硬约束？
+
+LLM 输出不可靠，如果直接用于交易：
+
+| 风险 | 场景 | 后果 |
+|-----|------|------|
+| **幻觉** | "根据数据，建议全仓买入" | 实际数据不支持 |
+| **计算错误** | "收益率 15%" 实际是 1.5% | 错误决策 |
+| **不一致** | 同样问题不同答案 | 无法复现 |
+
+### 硬约束设计
+
+![LLM 约束层架构](assets/llm-constraint-layer.svg)
+
+### 审计追踪
+
+每次 LLM 调用都必须记录：
+
+```json
+{
+  "timestamp": "2024-01-15 09:30:00",
+  "input_prompt": "分析 AAPL 财报...",
+  "output_raw": "...",
+  "output_parsed": {"sentiment": 0.6, ...},
+  "model": "gpt-4-0125-preview",
+  "temperature": 0.1,
+  "action_taken": "作为特征输入信号模型",
+  "final_decision": "未执行交易"
+}
+```
+
+**目的**：
+- 事后可以复盘 LLM 是否误导决策
+- 发现 LLM 表现下降可以及时调整
+- 监管合规
+
+---
+
+## 14.6 LLM Agent 架构
+
+### 在多智能体系统中的位置
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                      Meta Agent                          │
+└────────────────────────┬────────────────────────────────┘
+                         │
+    ┌────────────────────┼────────────────────┐
+    ↓                    ↓                    ↓
+┌─────────┐        ┌─────────┐          ┌─────────┐
+│  LLM    │        │ Signal  │          │  Risk   │
+│Research │ ──────→│  Agent  │ ────────→│  Agent  │
+│  Agent  │   输入  └─────────┘          └─────────┘
+└─────────┘  情感特征
+
+LLM Agent 位置：
+  - 不在关键决策路径上
+  - 只提供"参考信息"
+  - 下游 Agent 决定是否采纳
+```
+
+### LLM Agent 的职责边界
+
+| 可以做 | 不可以做 |
+|-------|---------|
+| 分析新闻情感 | 直接生成买卖信号 |
+| 提取财报数据 | 计算仓位大小 |
+| 生成报告草稿 | 修改风控参数 |
+| 解释策略逻辑 | 执行订单 |
+| 标注异常事件 | 禁用止损 |
+
+> **LLM 的能力边界**
+> LLM 是优秀的研究分析师，但不应直接参与交易决策。它可以解析年报、检测语气变化、标记会计异常、生成因子假设；但不能生成订单、计算仓位、修改风控参数或执行交易。这条边界必须在架构层面强制执行——LLM 的输出只能作为信号输入，不能触达执行或风控的控制路径。详见第 22 课的完整边界表。
+
+---
+
+## 14.7 实战注意事项
+
+### 成本控制
+
+| 场景 | 调用频率 | 成本控制策略 |
+|-----|---------|------------|
+| 实时新闻分析 | 每条新闻 | 先用规则过滤无关新闻 |
+| 财报分析 | 每季度 | 成本可接受 |
+| 日报生成 | 每日 | 用缓存避免重复调用 |
+| 实时问答 | 按需 | 限制每日调用次数 |
+
+### 延迟管理
+
+| 应用 | 可接受延迟 | 策略 |
+|-----|-----------|------|
+| 事件驱动交易 | < 1 秒 | 不用 LLM，用规则 |
+| 日频策略 | 分钟级 | 可用 LLM，批量处理 |
+| 研究分析 | 小时级 | 随意用 |
+
+### 模型选择
+
+| 任务 | 推荐模型 | 原因 |
+|-----|---------|------|
+| 情感分析 | GPT-3.5 / Claude Haiku | 简单任务，成本低 |
+| 财报分析 | GPT-4 / Claude Opus | 需要深度理解 |
+| 代码生成 | Claude Opus / GPT-4 | 需要精确 |
+| 简单分类 | 微调小模型 | 成本最低，延迟最小 |
+
+---
+
+## 本课交付物
+
+完成本课后，你将获得：
+
+1. **对 LLM 在量化中定位的清晰认知** - 知道能做什么、不能做什么
+2. **情感分析能力** - 能设计新闻/财报分析的 LLM 流程
+3. **安全约束意识** - 理解为什么必须有硬约束
+4. **架构集成方法** - 知道 LLM Agent 如何融入多智能体系统
+
+### ✅ 验收标准
+
+| 检查项 | 验收标准 | 自测方法 |
+|-------|---------|---------|
+| **定位理解** | 能说出 LLM 能做和不能做的各 3 件事 | 不看笔记，列举 |
+| **提示设计** | 能写出结构化的情感分析提示 | 给定新闻，设计 prompt |
+| **安全约束** | 能解释为什么不能让 LLM 直接交易 | 列出 3 个风险 |
+| **架构定位** | 能在多 Agent 架构图中标出 LLM 位置 | 画图 |
+
+**📝 设计练习**：
+
+设计一个 LLM 新闻分析流程，要求：
+1. 每日处理 500 条财经新闻
+2. 延迟要求 < 1 小时完成全部
+3. 成本预算 < $50/天
+4. 输出用于日频策略的情感特征
+
+<details>
+<summary>点击查看参考方案</summary>
+
+**流程设计**：
+
+1. **预过滤**（规则）：
+   - 关键词过滤，只保留涉及持仓股票的新闻
+   - 预计过滤后剩余 100 条
+
+2. **批量处理**：
+   - 使用 GPT-3.5-turbo（成本 $0.002/1K tokens）
+   - 每条新闻约 500 tokens 输入 + 200 tokens 输出
+   - 100 条 × 700 tokens × $0.002/1K = $0.14
+
+3. **并行调用**：
+   - 10 个并发调用
+   - 每条约 3 秒，100 条约 30 秒完成
+
+4. **输出格式**：
+   ```json
+   {
+     "symbol": "AAPL",
+     "sentiment": 0.6,
+     "event_type": "earnings",
+     "key_point": "beat expectations"
+   }
+   ```
+
+5. **后处理**：
+   - 聚合同一股票的多条新闻
+   - 计算加权平均情感分数
+   - 存入特征数据库
+
+**成本估算**：
+- 每日 $0.14 × 30 天 = $4.2/月
+- 远低于 $50/天预算
+
+</details>
+
+---
+
+## 本课要点回顾
+
+- [x] 理解 LLM 在量化中的正确定位：研究助理，非交易员
+- [x] 掌握新闻情感分析和财报信息抽取的应用方法
+- [x] 认识 LLM 的风险：幻觉、计算错误、不可复现
+- [x] 学会设计安全约束：硬约束层 + 审计追踪
+- [x] 理解 LLM Agent 在多智能体架构中的位置
 
 ---
 
 ## 延伸阅读
 
-- [AI Quant Book](https://github.com/waylandzhang/ai-quant-book)
-- [LangChain 文档](https://python.langchain.com/)
-- Lopez de Prado - "Quantamental Investing"
+- [背景知识：LLM 量化研究进展](../Part3-机器学习/背景知识/LLM量化研究进展.md) - 学术前沿
+- *GPT-4 Technical Report* - 理解 LLM 能力边界
+
+---
+
+## 下一课预告
+
+**第 15 课：风险控制与资金管理**
+
+再好的策略也会亏钱，关键是"亏多少能接受"。Risk Agent 拥有一票否决权，是保护资金的最后一道防线。下一课我们深入风控的核心逻辑。
