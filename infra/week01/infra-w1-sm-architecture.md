@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 sm architecture"
+---
+
 # D2：SM 架构详解——GPU 的计算心脏
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
