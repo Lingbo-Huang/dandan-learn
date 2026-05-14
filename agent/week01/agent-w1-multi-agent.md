@@ -1,3 +1,9 @@
+---
+layout: default
+title: "agent w1 multi agent"
+render_with_liquid: false
+---
+
 # D6 · 多 Agent 协作——当一个 Agent 不够用时
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
