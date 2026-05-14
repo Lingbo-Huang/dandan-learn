@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 primary contradiction"
+---
+
 # D2：抓主要矛盾——毛泽东如何用此赢得战争与政治
 
 *智慧心法 · Week 1 · 第二天*
