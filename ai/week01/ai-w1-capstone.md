@@ -1,3 +1,9 @@
+---
+layout: default
+title: "ai w1 capstone"
+render_with_liquid: false
+---
+
 # Day 7：综合复习与实战
 
 **主题**：本周知识串联、NumPy 综合实战、线性方程组求解  
