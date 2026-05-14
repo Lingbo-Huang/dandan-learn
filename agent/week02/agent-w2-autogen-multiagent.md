@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 autogen multiagent"
+---
+
 # AutoGen：对话式多 Agent 协作
 
 > **Day 4** · 预计学习时间：4-5 小时  
