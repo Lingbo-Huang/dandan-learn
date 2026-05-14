@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 pca from svd"
+---
+
 # D6 · PCA from SVD（主成分分析的 SVD 推导）
 
 > **Week 2 · Day 6**  
