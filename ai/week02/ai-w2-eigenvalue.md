@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 eigenvalue"
+---
+
 # D1：特征值的定义与几何意义
 
 > **Week 2 · Day 1** | AI 基础线：线性代数核心概念
