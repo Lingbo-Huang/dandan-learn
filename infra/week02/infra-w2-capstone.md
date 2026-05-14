@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 capstone"
+---
+
 # Capstone 项目：端到端分布式 LLM 微调实战
 
 > **Week 2 · Day 7**  
