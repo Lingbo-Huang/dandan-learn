@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 business tipping"
+---
+
 # D6：商业引爆点——滴滴、微信、拼多多的临界时刻
 
 *智慧心法 · Week 2 · 第六天*
