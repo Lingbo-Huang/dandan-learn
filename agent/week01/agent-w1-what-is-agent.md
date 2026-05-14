@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w1 what is agent"
+---
+
 # D1 · 什么是 Agent？——定义、本质与全景
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
