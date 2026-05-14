@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 contradiction duality"
+---
+
 # D3：矛盾的转化——坏事如何变成好事
 
 *智慧心法 · Week 1 · 第三天*
