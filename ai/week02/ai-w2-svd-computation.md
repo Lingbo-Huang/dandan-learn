@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 svd computation"
+---
+
 # D5 · SVD 计算（Truncated SVD & Low-Rank Approximation）
 
 > **Week 2 · Day 5**  
