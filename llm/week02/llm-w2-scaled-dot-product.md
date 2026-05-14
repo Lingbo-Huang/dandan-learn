@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 scaled dot product"
+---
+
 # D2：Scaled Dot-Product Attention 完整推导
 
 > **Week 2 · Day 2** | 大模型学习路线
