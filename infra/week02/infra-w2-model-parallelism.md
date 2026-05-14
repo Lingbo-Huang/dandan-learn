@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 model parallelism"
+---
+
 # 模型并行：张量并行 & 流水线并行
 
 > **Week 2 · Day 3**  
