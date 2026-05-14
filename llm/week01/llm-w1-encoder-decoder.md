@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 encoder decoder"
+---
+
 # Day 5：Feed-Forward Network & 残差归一化深入
 
 ---
