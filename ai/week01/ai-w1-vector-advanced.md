@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 vector advanced"
+---
+
 # Day 2：向量进阶
 
 **主题**：线性组合、线性无关、向量空间、投影、余弦相似度  
