@@ -2,6 +2,7 @@
 layout: default
 title: "数理统计基本概念"
 source: "https://github.com/datawhalechina/whale-quant"
+render_with_liquid: false
 ---
 
 > **来源**：[WhaleQuant · Ch02.4](https://github.com/datawhalechina/whale-quant)
