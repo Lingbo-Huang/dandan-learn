@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 self attention"
+---
+
 # Day 3：Attention 核心机制——Q/K/V 与 Scaled Dot-Product
 
 ---
