@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 first cuda kernel"
+---
+
 # D4：第一个 CUDA Kernel——矩阵转置与合并访问
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
