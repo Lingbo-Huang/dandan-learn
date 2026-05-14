@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 pca svd"
+---
+
 # D6：PCA 与 SVD 的关系及降维实战
 
 > **Week 2 · Day 6** | AI 基础线：线性代数核心概念
