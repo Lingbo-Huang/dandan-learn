@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 fat tails"
+---
+
 # Day 3：胖尾分布（Fat Tails）
 
 > **核心问题**：金融市场的极端事件比正态分布预测的频率高得多——如何更准确地建模这种"厚尾"现象？
