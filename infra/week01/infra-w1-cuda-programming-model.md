@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 cuda programming model"
+---
+
 # D3：CUDA 编程模型——从零认识并行计算框架
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
