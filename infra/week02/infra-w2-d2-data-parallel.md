@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d2 data parallel"
+---
+
 # D2：数据并行原理与 PyTorch DDP 实现
 
 > AI Infra Week2 · Day 2 | 作者：🥚🥚5号 ai infra
