@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 llamaindex rag"
+---
+
 # D3 LlamaIndex 用于 RAG 的核心设计
 
 > **学习目标**：理解 LlamaIndex 的设计哲学与核心抽象，掌握构建生产级 RAG 系统的关键技术，对比其与 LangChain 在 RAG 场景下的差异。
