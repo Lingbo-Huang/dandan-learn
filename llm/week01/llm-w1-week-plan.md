@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 week plan"
+---
+
 # 大模型线 Week 1 周规划总览
 
 **主题：Transformer 总览（整体架构、输入输出流程）**
