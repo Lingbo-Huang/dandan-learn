@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 nsight profiling"
+---
+
 # D6：CUDA 性能分析工具——Nsight Systems & Nsight Compute 实战
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
