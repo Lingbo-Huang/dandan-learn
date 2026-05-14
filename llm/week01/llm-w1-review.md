@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 review"
+---
+
 # Day 7：动手实现最小 Transformer + 本周总结
 
 ---
