@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w1 fundamentals"
+---
+
 # Day 4 · 期货市场概览
 
 > **Week 1 主题：金融市场概览**
