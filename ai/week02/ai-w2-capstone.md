@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 capstone"
+---
+
 # D7：综合实战——人脸识别（Eigenfaces）与图像压缩
 
 > **Week 2 · Day 7** | AI 基础线：线性代数核心概念
