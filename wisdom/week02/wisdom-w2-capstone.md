@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 capstone"
+---
+
 # D7：给自己设计一个量变系统——Week 2 综合实战
 
 *智慧心法 · Week 2 · 第七天*
