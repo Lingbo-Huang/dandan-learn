@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 matrix multiplication"
+---
+
 # Day 4：矩阵乘法
 
 **主题**：矩阵乘法规则、几何直觉、性质与矩阵链式法则  
