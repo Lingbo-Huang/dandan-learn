@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 comprehensive"
+---
+
 # D7：综合实战——沪深300风险收益画像
 
 > **Week 2 · Day 7** | 量化金融基础系列 · 综合实战
