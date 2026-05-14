@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 correlation"
+---
+
 # D5：资产间相关性分析（Pearson / Spearman / 滚动相关）
 
 > **Week 2 · Day 5** | 量化金融基础系列
