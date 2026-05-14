@@ -2,6 +2,7 @@
 layout: default
 title: "机器学习分类与量化选股"
 source: "https://github.com/datawhalechina/whale-quant"
+render_with_liquid: false
 ---
 
 > **来源**：[WhaleQuant · Ch08.2](https://github.com/datawhalechina/whale-quant)
