@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 eigenvector"
+---
+
 # D2：特征向量与特征空间
 
 > **Week 2 · Day 2** | AI 基础线：线性代数核心概念
