@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 accumulation power"
+---
+
 # D1：积累的本质——为什么努力了很久才突然成功
 
 *智慧心法 · Week 2 · 第一天*
