@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d3 model parallel"
+---
+
 # D3：模型并行（流水线并行 + 张量并行）
 
 > AI Infra Week2 · Day 3 | 作者：🥚🥚5号 ai infra
