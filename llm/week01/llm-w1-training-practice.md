@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 training practice"
+---
+
 # Day 6：Encoder vs Decoder vs Encoder-Decoder 架构变体对比
 
 ---
