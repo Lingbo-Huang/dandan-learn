@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 langchain chains tools"
+---
+
 # D2 LangChain 链与工具使用
 
 > **学习目标**：掌握 LangChain 中链（Chain）的各种模式，学会定义和使用工具（Tool），理解 Agent 如何通过工具完成复杂任务。
