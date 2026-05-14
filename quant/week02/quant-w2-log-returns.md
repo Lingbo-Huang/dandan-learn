@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 log returns"
+---
+
 # Day 1：对数收益率（Log Returns）
 
 > **核心问题**：为什么量化金融更偏爱对数收益率？它有哪些数学优势？
