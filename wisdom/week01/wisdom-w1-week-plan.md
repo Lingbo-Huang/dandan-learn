@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 week plan"
+---
+
 # 智慧心法 · Week 1 周规划
 ## 主题：矛盾法则——看穿问题本质的第一把钥匙
 
