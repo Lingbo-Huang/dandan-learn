@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 vector basics"
+---
+
 # Day 1：向量基础
 
 **主题**：向量的定义、加减法、数乘、点积、范数  
