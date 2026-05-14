@@ -1,3 +1,9 @@
+---
+layout: default
+title: "agent w1 planning"
+render_with_liquid: false
+---
+
 # D3 · Agent 规划能力——让 AI 处理复杂长程任务
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
