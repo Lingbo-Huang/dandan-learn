@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w1 memory system"
+---
+
 # D4 · Agent 记忆系统——让 AI 真正"记住"事情
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
