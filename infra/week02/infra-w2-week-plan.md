@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 week plan"
+---
+
 # Week 2 学习计划：分布式训练基础 & DeepSpeed 入门
 
 > **所属系列**：AI Infra 学习路线 · Phase 1 基础夯实  
