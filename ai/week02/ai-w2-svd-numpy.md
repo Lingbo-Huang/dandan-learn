@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 svd numpy"
+---
+
 # D5：SVD 数值计算与 NumPy 实现
 
 > **Week 2 · Day 5** | AI 基础线：线性代数核心概念
