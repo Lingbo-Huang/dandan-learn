@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 compound effect"
+---
+
 # D4：复利的底层——巴菲特与任正非的时间游戏
 
 *智慧心法 · Week 2 · 第四天*
