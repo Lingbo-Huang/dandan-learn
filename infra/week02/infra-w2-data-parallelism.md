@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 data parallelism"
+---
+
 # 数据并行：从 DP 到 DDP
 
 > **Week 2 · Day 2**  
