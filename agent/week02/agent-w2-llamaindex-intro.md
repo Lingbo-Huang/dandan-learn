@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 llamaindex intro"
+---
+
 # LlamaIndex：以数据为核心的 RAG 框架
 
 > **Day 3** · 预计学习时间：4-5 小时  
