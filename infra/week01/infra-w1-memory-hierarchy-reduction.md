@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w1 memory hierarchy reduction"
+---
+
 # D5：CUDA 内存层次与归约优化——从朴素到高效
 
 > Week1 主题：GPU架构与CUDA基础 | AI Infra线
