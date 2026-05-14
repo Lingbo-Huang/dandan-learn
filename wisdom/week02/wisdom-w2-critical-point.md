@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 critical point"
+---
+
 # D2：临界点法则——怎么知道自己快要突破了
 
 *智慧心法 · Week 2 · 第二天*
