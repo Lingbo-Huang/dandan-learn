@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 history cases"
+---
+
 # D4：历史大案——三国赤壁/楚汉之争/长征的矛盾分析
 
 *智慧心法 · Week 1 · 第四天*
