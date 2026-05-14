@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w1 data tools"
+---
+
 # Day 7 · Week 1 回顾与横向对比
 
 > **Week 1 主题：金融市场概览**
