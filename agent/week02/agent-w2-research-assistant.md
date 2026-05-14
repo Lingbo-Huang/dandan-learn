@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 research assistant"
+---
+
 # D7 综合实战：用 LangChain + AutoGen 搭建研究助手
 
 > **学习目标**：综合运用本周所学，构建一个完整的 AI 研究助手系统，该系统能够自动搜集资料、分析内容、生成报告，并支持多轮对话交互。
