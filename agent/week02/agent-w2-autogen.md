@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 autogen"
+---
+
 # D4 AutoGen 多 Agent 对话框架
 
 > **学习目标**：理解 AutoGen 的多 Agent 协作设计理念，掌握各类 Agent 的使用方式，能够构建多 Agent 协同完成复杂任务的系统。
