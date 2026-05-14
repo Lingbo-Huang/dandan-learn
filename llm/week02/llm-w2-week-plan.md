@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 week plan"
+---
+
 # Week 2 学习计划：Attention 机制深度推导
 
 > 系列：大模型线（LLM Track）| 难度：⭐⭐⭐⭐ | 预计时长：10-14 小时
