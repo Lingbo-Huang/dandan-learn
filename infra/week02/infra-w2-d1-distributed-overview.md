@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d1 distributed overview"
+---
+
 # D1：分布式训练全景与通信原语
 
 > AI Infra Week2 · Day 1 | 作者：🥚🥚5号 ai infra
