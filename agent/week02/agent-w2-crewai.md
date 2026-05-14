@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 crewai"
+---
+
 # D5 CrewAI 角色分工与任务流
 
 > **学习目标**：理解 CrewAI 的角色导向设计哲学，掌握 Agent、Task、Crew 的定义方式，能够构建角色清晰、任务有序的多 Agent 工作流。
