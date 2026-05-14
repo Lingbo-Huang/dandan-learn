@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 log return"
+---
+
 # D1：对数收益率定义与性质
 
 > **Week 2 · Day 1** | 量化金融基础系列
