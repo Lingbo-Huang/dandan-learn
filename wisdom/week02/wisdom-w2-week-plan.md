@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 week plan"
+---
+
 # Week 2 周规划：量变与质变——积累的力量与临界点
 
 *智慧心法 · Week 2 · 周规划*
