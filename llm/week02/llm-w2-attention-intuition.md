@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 attention intuition"
+---
+
 # D1：Attention 的直觉理解——查询/键/值的隐喻
 
 > **Week 2 · Day 1** | 大模型学习路线
