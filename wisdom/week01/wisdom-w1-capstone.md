@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 capstone"
+---
+
 # D7：矛盾法则综合实战——给自己的当下矛盾开一张处方
 
 *智慧心法 · Week 1 · 第七天*
