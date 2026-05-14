@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d7 gpt2 deepspeed"
+---
+
 # D7：综合实战 — 用 DeepSpeed 训练 GPT-2
 
 > AI Infra Week2 · Day 7 | 作者：🥚🥚5号 ai infra
