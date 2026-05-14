@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w1 ffn layernorm"
+---
+
 # Day 4：Multi-Head Attention & 位置编码
 
 ---
