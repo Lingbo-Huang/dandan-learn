@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 normality test"
+---
+
 # D2：收益率正态假设检验（QQ图 / JB检验）
 
 > **Week 2 · Day 2** | 量化金融基础系列
