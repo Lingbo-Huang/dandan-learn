@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 contradiction essence"
+---
+
 # D1：矛盾的本质——为什么所有问题都有两面
 
 *智慧心法 · Week 1 · 第一天*
