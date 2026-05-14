@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 svd theory"
+---
+
 # D4：SVD 定理与几何直觉
 
 > **Week 2 · Day 4** | AI 基础线：线性代数核心概念
