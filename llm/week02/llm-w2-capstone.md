@@ -1,3 +1,8 @@
+---
+layout: default
+title: "llm w2 capstone"
+---
+
 # Week 2 综合项目：从零训练一个 Tiny Transformer
 
 > 系列：大模型线 Week 2 | 文件：llm-w2-capstone.md
