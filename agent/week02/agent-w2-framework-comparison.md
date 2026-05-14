@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 framework comparison"
+---
+
 # D6 四大 Agent 框架横向对比与选型建议
 
 > **学习目标**：从多个维度深入对比 LangChain、LlamaIndex、AutoGen、CrewAI 四大主流框架，建立清晰的选型决策思路，避免"用锤子看一切都是钉子"。
