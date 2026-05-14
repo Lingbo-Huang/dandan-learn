@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 zero stages"
+---
+
 # ZeRO：显存优化的终结者
 
 > **Week 2 · Day 4**  
