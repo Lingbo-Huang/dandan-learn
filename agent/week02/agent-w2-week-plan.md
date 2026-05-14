@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 week plan"
+---
+
 # Week 2 学习计划：主流 Agent 框架实战
 
 > **学习主线**：从「理解 LLM 能做什么」到「用主流框架搭建真正的 Agent 系统」  
