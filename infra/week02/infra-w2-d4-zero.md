@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d4 zero"
+---
+
 # D4：ZeRO 三个阶段内存优化原理
 
 > AI Infra Week2 · Day 4 | 作者：🥚🥚5号 ai infra
