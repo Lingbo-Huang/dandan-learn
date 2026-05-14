@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 determinant"
+---
+
 # Day 5：行列式
 
 **主题**：行列式的定义、计算方法、几何意义与性质  
