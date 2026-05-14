@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w2 eigenvectors"
+---
+
 # D2 · 特征向量（Eigenvectors）
 
 > **Week 2 · Day 2**  
