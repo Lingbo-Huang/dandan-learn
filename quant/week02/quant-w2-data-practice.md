@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 data practice"
+---
+
 # Day 6：数据实战——A 股全流程统计分析
 
 > **目标**：综合运用本周所有知识，对真实 A 股数据做一次完整的"量化统计体检"。
