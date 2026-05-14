@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 deepspeed intro"
+---
+
 # DeepSpeed 入门：一站式分布式训练框架
 
 > **Week 2 · Day 5**  
