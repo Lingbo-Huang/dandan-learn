@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w1 business contradiction"
+---
+
 # D5：商业战场——乔布斯/任正非/马云如何解决核心矛盾
 
 *智慧心法 · Week 1 · 第五天*
