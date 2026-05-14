@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w1 time series"
+---
+
 # Day 6 · 多市场数据获取实战
 
 > **Week 1 主题：金融市场概览**
