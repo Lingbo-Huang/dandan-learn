@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 inverse rank"
+---
+
 # Day 6：矩阵的逆与秩
 
 **主题**：逆矩阵的定义与求法、矩阵秩、线性方程组可解性  
