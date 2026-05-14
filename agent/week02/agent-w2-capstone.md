@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 capstone"
+---
+
 # Week 2 综合实战：多框架协作的智能研究助手
 
 > **Day 7** · 预计学习时间：5-6 小时  
