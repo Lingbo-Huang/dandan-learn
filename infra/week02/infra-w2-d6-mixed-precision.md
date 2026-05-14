@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 d6 mixed precision"
+---
+
 # D6：混合精度训练（FP16 / BF16 / Loss Scaling）
 
 > AI Infra Week2 · Day 6 | 作者：🥚🥚5号 ai infra
