@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w2 langchain basics"
+---
+
 # D1 LangChain 基础架构与核心概念
 
 > **学习目标**：理解 LangChain 的设计哲学，掌握其核心组件的作用与使用方式，能够用 LangChain 构建最基础的 LLM 应用。
