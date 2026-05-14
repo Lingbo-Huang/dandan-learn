@@ -1,3 +1,9 @@
+---
+layout: default
+title: "ai w2 diagonalization"
+render_with_liquid: false
+---
+
 # D3：矩阵对角化的条件与步骤
 
 > **Week 2 · Day 3** | AI 基础线：线性代数核心概念
