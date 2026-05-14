@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 normal hypothesis"
+---
+
 # Day 2：正态假设检验
 
 > **核心问题**：金融教科书假设收益率正态分布，这个假设成立吗？如何用统计方法验证？
