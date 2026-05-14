@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w1 react framework"
+---
+
 # D2 · ReAct 框架——Agent 的核心推理范式
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
