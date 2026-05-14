@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w1 capstone project"
+---
+
 # D7 · Week1 综合实战——构建你的第一个完整 Agent
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
