@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 distributed overview"
+---
+
 # 分布式训练总览
 
 > **Week 2 · Day 1**  
