@@ -1,3 +1,8 @@
+---
+layout: default
+title: "agent w1 tool calling"
+---
+
 # D5 · 工具调用——Agent 连接外部世界
 
 > **Week 1 主题**：什么是 Agent——定义 / ReAct / 规划 / 记忆 / 工具调用  
