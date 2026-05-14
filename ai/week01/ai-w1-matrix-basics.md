@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 matrix basics"
+---
+
 # Day 3：矩阵基础
 
 **主题**：矩阵定义、加减法、数乘、转置、特殊矩阵  
