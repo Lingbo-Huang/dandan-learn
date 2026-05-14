@@ -1,3 +1,8 @@
+---
+layout: default
+title: "quant w2 data pipeline"
+---
+
 # D6：完整数据处理实战（Tushare获取 → 清洗 → 统计）
 
 > **Week 2 · Day 6** | 量化金融基础系列
