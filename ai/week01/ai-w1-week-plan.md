@@ -1,3 +1,8 @@
+---
+layout: default
+title: "ai w1 week plan"
+---
+
 # AI 基础线 Week 1 周规划总览
 
 **主题：线性代数①——向量、矩阵、行列式、矩阵乘法**
