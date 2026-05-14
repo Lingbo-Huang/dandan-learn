@@ -1,3 +1,8 @@
+---
+layout: default
+title: "infra w2 mixed precision"
+---
+
 # 混合精度训练：FP16 / BF16 / FP8 实战
 
 > **Week 2 · Day 6**  
