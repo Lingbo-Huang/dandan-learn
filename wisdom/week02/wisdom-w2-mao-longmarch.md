@@ -1,3 +1,8 @@
+---
+layout: default
+title: "wisdom w2 mao longmarch"
+---
+
 # D3：毛泽东与长征——14年积累如何引爆质变
 
 *智慧心法 · Week 2 · 第三天*
