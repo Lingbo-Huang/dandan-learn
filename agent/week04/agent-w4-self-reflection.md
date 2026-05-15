@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "W4D4 · 自我反思与批评机制"
+render_with_liquid: false
 ---
 
 # 自我反思：让 Agent 成为自己的批评者
