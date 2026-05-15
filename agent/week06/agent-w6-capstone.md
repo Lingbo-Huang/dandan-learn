@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "W6 Capstone · 有记忆的个人助手 Agent"
+render_with_liquid: false
 ---
 
 # Capstone：构建有长期记忆的个人助手
