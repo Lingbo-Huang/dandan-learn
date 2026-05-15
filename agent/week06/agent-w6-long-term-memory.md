@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "W6D4 · 长期记忆系统"
+render_with_liquid: false
 ---
 
 # 长期记忆：让 Agent 跨会话记住一切
