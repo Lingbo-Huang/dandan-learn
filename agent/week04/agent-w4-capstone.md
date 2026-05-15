@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "W4 Capstone · 复杂问题求解 Agent"
+render_with_liquid: false
 ---
 
 # Capstone：构建生产级复杂推理 Agent
