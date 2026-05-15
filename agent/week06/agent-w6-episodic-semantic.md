@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "W6D5 · 情景记忆与语义记忆"
+render_with_liquid: false
 ---
 
 # 情景记忆与语义记忆：两种高级记忆形式
