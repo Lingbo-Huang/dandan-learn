@@ -26,7 +26,7 @@ title: AI 基础
         </div>
       </div>
       <div class="phase-right">
-        <span class="phase-progress">2 / 8 周</span>
+        <span class="phase-progress">8 / 8 周</span>
         <span class="phase-arrow">▶</span>
       </div>
     </div>
@@ -71,8 +71,64 @@ title: AI 基础
         </div>
       </div>
       <div class="week-block">
-        <div class="week-label">Week 4–8 · 微积分 / 概率统计 / 信息论</div>
-        <p class="coming">🔜 内容生成中，每周持续更新…</p>
+        <div class="week-label">Week 4 · 分类算法</div>
+        <div class="day-grid">
+          <a href="{{ '/ai/week04/ai-w4-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/ai/week04/ai-w4-naive-bayes' | relative_url }}" class="day-link">D1 · 朴素贝叶斯</a>
+          <a href="{{ '/ai/week04/ai-w4-logistic-regression' | relative_url }}" class="day-link">D2 · 逻辑回归</a>
+          <a href="{{ '/ai/week04/ai-w4-svm' | relative_url }}" class="day-link">D3 · 支持向量机 SVM</a>
+          <a href="{{ '/ai/week04/ai-w4-decision-tree' | relative_url }}" class="day-link">D4 · 决策树</a>
+          <a href="{{ '/ai/week04/ai-w4-random-forest' | relative_url }}" class="day-link">D5 · 随机森林</a>
+          <a href="{{ '/ai/week04/ai-w4-capstone' | relative_url }}" class="day-link">D7 · 五大算法对决</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 5 · 模型评估与集成学习</div>
+        <div class="day-grid">
+          <a href="{{ '/ai/week05/ai-w5-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/ai/week05/ai-w5-cross-validation' | relative_url }}" class="day-link">D1 · 交叉验证与过拟合诊断</a>
+          <a href="{{ '/ai/week05/ai-w5-metrics' | relative_url }}" class="day-link">D2 · 评估指标全家桶</a>
+          <a href="{{ '/ai/week05/ai-w5-adaboost' | relative_url }}" class="day-link">D3 · AdaBoost</a>
+          <a href="{{ '/ai/week05/ai-w5-xgboost' | relative_url }}" class="day-link">D4 · GBDT 与 XGBoost</a>
+          <a href="{{ '/ai/week05/ai-w5-model-tuning' | relative_url }}" class="day-link">D5 · 模型调优全流程</a>
+          <a href="{{ '/ai/week05/ai-w5-capstone' | relative_url }}" class="day-link">D7 · Kaggle 竞赛模拟</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 6 · 神经网络基础</div>
+        <div class="day-grid">
+          <a href="{{ '/ai/week06/ai-w6-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/ai/week06/ai-w6-perceptron-mlp' | relative_url }}" class="day-link">D1 · 感知机与 MLP</a>
+          <a href="{{ '/ai/week06/ai-w6-backprop' | relative_url }}" class="day-link">D2 · 反向传播推导</a>
+          <a href="{{ '/ai/week06/ai-w6-activations' | relative_url }}" class="day-link">D3 · 激活函数详解</a>
+          <a href="{{ '/ai/week06/ai-w6-init-batchnorm' | relative_url }}" class="day-link">D4 · 初始化与 BatchNorm</a>
+          <a href="{{ '/ai/week06/ai-w6-optimizers' | relative_url }}" class="day-link">D5 · 优化器进阶</a>
+          <a href="{{ '/ai/week06/ai-w6-capstone' | relative_url }}" class="day-link">D7 · PyTorch MLP 全流程</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 7 · CNN 卷积神经网络</div>
+        <div class="day-grid">
+          <a href="{{ '/ai/week07/ai-w7-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/ai/week07/ai-w7-convolution' | relative_url }}" class="day-link">D1 · 卷积与池化</a>
+          <a href="{{ '/ai/week07/ai-w7-classic-cnn' | relative_url }}" class="day-link">D2 · 经典 CNN 架构演进</a>
+          <a href="{{ '/ai/week07/ai-w7-resnet' | relative_url }}" class="day-link">D3 · ResNet 残差网络</a>
+          <a href="{{ '/ai/week07/ai-w7-transfer-learning' | relative_url }}" class="day-link">D4 · 迁移学习</a>
+          <a href="{{ '/ai/week07/ai-w7-detection-intro' | relative_url }}" class="day-link">D5 · 目标检测入门</a>
+          <a href="{{ '/ai/week07/ai-w7-capstone' | relative_url }}" class="day-link">D7 · 图像分类全流程</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 8 · RNN 与序列模型</div>
+        <div class="day-grid">
+          <a href="{{ '/ai/week08/ai-w8-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/ai/week08/ai-w8-rnn' | relative_url }}" class="day-link">D1 · RNN 基础与 BPTT</a>
+          <a href="{{ '/ai/week08/ai-w8-lstm-gru' | relative_url }}" class="day-link">D2 · LSTM 详解</a>
+          <a href="{{ '/ai/week08/ai-w8-gru-variants' | relative_url }}" class="day-link">D3 · GRU 与序列变体</a>
+          <a href="{{ '/ai/week08/ai-w8-seq2seq' | relative_url }}" class="day-link">D4 · Seq2Seq 模型</a>
+          <a href="{{ '/ai/week08/ai-w8-attention' | relative_url }}" class="day-link">D5 · Attention 机制入门</a>
+          <a href="{{ '/ai/week08/ai-w8-capstone' | relative_url }}" class="day-link">D7 · 情感分析与文本生成</a>
+        </div>
       </div>
     </div>
   </div>
