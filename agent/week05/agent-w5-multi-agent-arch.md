@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "W5D1 · 多 Agent 架构设计"
+render_with_liquid: false
 ---
 
 # 多 Agent 架构设计：从单兵作战到协同作战
