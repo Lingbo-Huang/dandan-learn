@@ -21,7 +21,7 @@ title: 量化 Quant
         <div class="phase-icon" style="background:rgba(63,185,80,0.1)">💹</div>
         <div><div class="phase-title">Phase 1 · 金融与市场基础</div><div class="phase-meta">W1–W8 · 市场结构/收益率统计/技术分析/基本面</div></div>
       </div>
-      <div class="phase-right"><span class="phase-progress">2 / 8 周</span><span class="phase-arrow">▶</span></div>
+      <div class="phase-right"><span class="phase-progress">8 / 8 周</span><span class="phase-arrow">▶</span></div>
     </div>
     <div class="phase-body">
       <div class="week-block">
@@ -63,7 +63,71 @@ title: 量化 Quant
           <a href="{{ '/quant/week03/quant-w3-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
         </div>
       </div>
-      <div class="week-block"><div class="week-label">Week 4–8</div><p class="coming">🔜 内容生成中…</p></div>
+      <div class="week-block">
+        <div class="week-label">Week 4 · 因子体系</div>
+        <div class="day-grid">
+          <a href="{{ '/quant/week04/quant-w4-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/quant/week04/quant-w4-momentum' | relative_url }}" class="day-link">D1 · 动量因子</a>
+          <a href="{{ '/quant/week04/quant-w4-value' | relative_url }}" class="day-link">D2 · 价值因子</a>
+          <a href="{{ '/quant/week04/quant-w4-quality' | relative_url }}" class="day-link">D3 · 质量因子</a>
+          <a href="{{ '/quant/week04/quant-w4-low-vol' | relative_url }}" class="day-link">D4 · 低波动因子</a>
+          <a href="{{ '/quant/week04/quant-w4-ic-icir' | relative_url }}" class="day-link">D5 · IC/ICIR 评价</a>
+          <a href="{{ '/quant/week04/quant-w4-multifactor' | relative_url }}" class="day-link">D6 · 多因子合成</a>
+          <a href="{{ '/quant/week04/quant-w4-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 5 · 策略开发</div>
+        <div class="day-grid">
+          <a href="{{ '/quant/week05/quant-w5-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/quant/week05/quant-w5-cta' | relative_url }}" class="day-link">D1 · CTA 趋势跳踪</a>
+          <a href="{{ '/quant/week05/quant-w5-stat-arb' | relative_url }}" class="day-link">D2 · 统计套利</a>
+          <a href="{{ '/quant/week05/quant-w5-cross-sectional' | relative_url }}" class="day-link">D3 · 截面动量</a>
+          <a href="{{ '/quant/week05/quant-w5-event-driven' | relative_url }}" class="day-link">D4 · 事件驱动</a>
+          <a href="{{ '/quant/week05/quant-w5-evaluation' | relative_url }}" class="day-link">D5 · 策略评估框架</a>
+          <a href="{{ '/quant/week05/quant-w5-backtest-engine' | relative_url }}" class="day-link">D6 · 回测引擎设计</a>
+          <a href="{{ '/quant/week05/quant-w5-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 6 · 机器学习因子挖掘</div>
+        <div class="day-grid">
+          <a href="{{ '/quant/week06/quant-w6-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/quant/week06/quant-w6-alpha158' | relative_url }}" class="day-link">D1 · Alpha158</a>
+          <a href="{{ '/quant/week06/quant-w6-feature-engineering' | relative_url }}" class="day-link">D2 · 特征工程</a>
+          <a href="{{ '/quant/week06/quant-w6-tree-models' | relative_url }}" class="day-link">D3 · 树模型选股</a>
+          <a href="{{ '/quant/week06/quant-w6-neural-factors' | relative_url }}" class="day-link">D4 · 神经网络因子</a>
+          <a href="{{ '/quant/week06/quant-w6-ensemble' | relative_url }}" class="day-link">D5 · 模型集成</a>
+          <a href="{{ '/quant/week06/quant-w6-overfitting' | relative_url }}" class="day-link">D6 · 过拟合陷阱</a>
+          <a href="{{ '/quant/week06/quant-w6-capstone' | relative_url }}" class="day-link">D7 · ML 多因子框架</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 7 · 高频与执行</div>
+        <div class="day-grid">
+          <a href="{{ '/quant/week07/quant-w7-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/quant/week07/quant-w7-microstructure' | relative_url }}" class="day-link">D1 · 市场微观结构</a>
+          <a href="{{ '/quant/week07/quant-w7-orderbook' | relative_url }}" class="day-link">D2 · 订单簿</a>
+          <a href="{{ '/quant/week07/quant-w7-twap-vwap' | relative_url }}" class="day-link">D3 · TWAP/VWAP</a>
+          <a href="{{ '/quant/week07/quant-w7-market-impact' | relative_url }}" class="day-link">D4 · 冲击成本</a>
+          <a href="{{ '/quant/week07/quant-w7-market-making' | relative_url }}" class="day-link">D5 · 做市策略</a>
+          <a href="{{ '/quant/week07/quant-w7-hft-data' | relative_url }}" class="day-link">D6 · 高频数据处理</a>
+          <a href="{{ '/quant/week07/quant-w7-capstone' | relative_url }}" class="day-link">D7 · 执行优化框架</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 8 · 量化面试突击</div>
+        <div class="day-grid">
+          <a href="{{ '/quant/week08/quant-w8-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/quant/week08/quant-w8-coding' | relative_url }}" class="day-link">D1 · 编程题</a>
+          <a href="{{ '/quant/week08/quant-w8-prob-stats' | relative_url }}" class="day-link">D2 · 概率与统计</a>
+          <a href="{{ '/quant/week08/quant-w8-brainteasers' | relative_url }}" class="day-link">D3 · 脑筋急转弯</a>
+          <a href="{{ '/quant/week08/quant-w8-case-study' | relative_url }}" class="day-link">D4 · 案例面试</a>
+          <a href="{{ '/quant/week08/quant-w8-career' | relative_url }}" class="day-link">D5 · 岗位与简历</a>
+          <a href="{{ '/quant/week08/quant-w8-behavioral' | relative_url }}" class="day-link">D6 · 行为面试</a>
+          <a href="{{ '/quant/week08/quant-w8-capstone' | relative_url }}" class="day-link">D7 · 终极模拟面试</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="phase c-quant"><div class="phase-header"><div class="phase-left"><div class="phase-icon" style="background:rgba(63,185,80,0.1)">📊</div><div><div class="phase-title">Phase 2 · 因子与策略</div><div class="phase-meta">W9–W18 · 动量/价值/质量/CTA/统计套利</div></div></div><div class="phase-right"><span class="phase-progress">即将开启</span><span class="phase-arrow">▶</span></div></div><div class="phase-body"><p class="coming">🔜 即将开启…</p></div></div>
