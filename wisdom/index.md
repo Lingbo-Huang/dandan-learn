@@ -37,7 +37,7 @@ title: 智慧心法
           <div class="phase-meta">W1–W8 · 矛盾论/量变质变/历史规律/时势/危机中的机遇</div>
         </div>
       </div>
-      <div class="phase-right"><span class="phase-progress">1 / 8 周</span><span class="phase-arrow">▶</span></div>
+      <div class="phase-right"><span class="phase-progress">8 / 8 周</span><span class="phase-arrow">▶</span></div>
     </div>
     <div class="phase-body">
       <div class="week-block">
@@ -71,8 +71,69 @@ title: 智慧心法
         </div>
       </div>
       <div class="week-block">
-        <div class="week-label">Week 4–8 · 时势/偶然与必然/危机中的机遇…</div>
-        <p class="coming">🔜 即将更新…</p>
+        <div class="week-label">Week 4 · 第一性原理思维</div>
+        <div class="day-grid">
+          <a href="{{ '/wisdom/week04/wisdom-w4-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-first-principles' | relative_url }}" class="day-link">D1 · 第一性原理</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-feynman' | relative_url }}" class="day-link">D2 · 费曼学习法</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-root-cause' | relative_url }}" class="day-link">D3 · 溯源推理</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-assumptions' | relative_url }}" class="day-link">D4 · 假设识别与质疑</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-thought-experiments' | relative_url }}" class="day-link">D5 · 思维实验</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-career-apply' | relative_url }}" class="day-link">D6 · 职业中的应用</a>
+          <a href="{{ '/wisdom/week04/wisdom-w4-capstone' | relative_url }}" class="day-link">D7 · 综合实战</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 5 · 概率思维</div>
+        <div class="day-grid">
+          <a href="{{ '/wisdom/week05/wisdom-w5-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-prob-thinking' | relative_url }}" class="day-link">D1 · 概率思维基础</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-bayesian' | relative_url }}" class="day-link">D2 · 贝叶斯更新</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-base-rate' | relative_url }}" class="day-link">D3 · 基率</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-overconfidence' | relative_url }}" class="day-link">D4 · 过度自信</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-calibration' | relative_url }}" class="day-link">D5 · 决策校准</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-decisions' | relative_url }}" class="day-link">D6 · 概率决策实战</a>
+          <a href="{{ '/wisdom/week05/wisdom-w5-capstone' | relative_url }}" class="day-link">D7 · 概率日记</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 6 · 系统思维</div>
+        <div class="day-grid">
+          <a href="{{ '/wisdom/week06/wisdom-w6-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-systems' | relative_url }}" class="day-link">D1 · 什么是系统思维</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-feedback' | relative_url }}" class="day-link">D2 · 正负反馈回路</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-complexity' | relative_url }}" class="day-link">D3 · 复杂系统</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-emergence' | relative_url }}" class="day-link">D4 · 涌现</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-leverage' | relative_url }}" class="day-link">D5 · 杠杆点</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-quant-apply' | relative_url }}" class="day-link">D6 · 量化中的应用</a>
+          <a href="{{ '/wisdom/week06/wisdom-w6-capstone' | relative_url }}" class="day-link">D7 · 系统图分析</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 7 · 认知偏差与纠偏</div>
+        <div class="day-grid">
+          <a href="{{ '/wisdom/week07/wisdom-w7-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-biases-intro' | relative_url }}" class="day-link">D1 · 认知偏差导论</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-confirmation' | relative_url }}" class="day-link">D2 · 确认偏误</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-sunk-cost' | relative_url }}" class="day-link">D3 · 沉没成本</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-availability' | relative_url }}" class="day-link">D4 · 可得性启发</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-anchoring' | relative_url }}" class="day-link">D5 · 锅定与框架效应</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-debiasing' | relative_url }}" class="day-link">D6 · 系统性去偏方法</a>
+          <a href="{{ '/wisdom/week07/wisdom-w7-capstone' | relative_url }}" class="day-link">D7 · 偏差审计</a>
+        </div>
+      </div>
+      <div class="week-block">
+        <div class="week-label">Week 8 · 职业决策框架</div>
+        <div class="day-grid">
+          <a href="{{ '/wisdom/week08/wisdom-w8-week-plan' | relative_url }}" class="day-link plan">📋 周规划总览</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-career-logic' | relative_url }}" class="day-link">D1 · 职业选择底层逻辑</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-industry' | relative_url }}" class="day-link">D2 · 如何选行业</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-company' | relative_url }}" class="day-link">D3 · 如何选公司</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-role' | relative_url }}" class="day-link">D4 · 如何选岗位</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-longterm' | relative_url }}" class="day-link">D5 · 长期主义与复利</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-moat' | relative_url }}" class="day-link">D6 · 能力圈与护城河</a>
+          <a href="{{ '/wisdom/week08/wisdom-w8-capstone' | relative_url }}" class="day-link">D7 · 职业路径设计</a>
+        </div>
       </div>
     </div>
   </div>
